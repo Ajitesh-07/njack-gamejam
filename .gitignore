@@ -1,0 +1,16 @@
+# Godot-specific ignores
+.godot/
+*.translation
+
+# Mono/C#
+.mono/
+bin/
+obj/
+project.sln
+project.csproj
+*.user
+*.userprefs
+
+# User-specific (these should not be in version control)
+export_presets.cfg
+.editor/
