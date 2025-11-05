@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg65dqwcdyhnf"
-path="res://.godot/imported/RedMoonTower_free_idle_animation..png-6c0d0f12ba85d77db975e6c26a11a1cb.ctex"
+uid="uid://dtdla02o2n7x3"
+path="res://.godot/imported/TX Shadow.png-85d4bd67b5ec7b4f384cf88f04423a9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BloodMoonTower_free_version/RedMoonTower_free_idle_animation..png"
-dest_files=["res://.godot/imported/RedMoonTower_free_idle_animation..png-6c0d0f12ba85d77db975e6c26a11a1cb.ctex"]
+source_file="res://Assets/Texture/TX Shadow.png"
+dest_files=["res://.godot/imported/TX Shadow.png-85d4bd67b5ec7b4f384cf88f04423a9d.ctex"]
 
 [params]
 
