@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsfi55sje82yu"]
+
+[ext_resource type="Texture2D" uid="uid://ckqrasn64gx41" path="res://Assets/Texture/TX Props.png" id="1_ua6o0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua6o0"]
+atlas = ExtResource("1_ua6o0")
+region = Rect2(434, 0, 62, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rwwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua6o0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l22o2"]
+size = Vector2(35, 28)
+
+[node name="Spawn Tower" type="StaticBody2D"]
+z_index = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2rwwt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 33)
+shape = SubResource("RectangleShape2D_l22o2")

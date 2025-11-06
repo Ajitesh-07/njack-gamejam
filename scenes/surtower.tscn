@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://2m3ipmb82584"]
+
+[ext_resource type="Texture2D" uid="uid://ckqrasn64gx41" path="res://Assets/Texture/TX Props.png" id="1_hg325"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg325"]
+atlas = ExtResource("1_hg325")
+region = Rect2(336, 170, 56, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0w1q8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg325")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iqhs"]
+size = Vector2(30, 29)
+
+[node name="surtower" type="StaticBody2D"]
+z_index = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0w1q8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 26.5)
+shape = SubResource("RectangleShape2D_2iqhs")
