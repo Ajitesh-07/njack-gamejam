@@ -13,7 +13,6 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, speed)
 
 	move_and_slide()
-
 	update_animation()
 
 func update_animation():
