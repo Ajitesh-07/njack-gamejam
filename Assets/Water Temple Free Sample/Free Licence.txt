@@ -1,0 +1,9 @@
+ALLOWED:
+-Using Asset in Non Commercial Projects
+-Edit the Asset and using them in Non Commercial Projects
+
+NOT ALLOWED:
+-Redistribution is prohibited in original or derivative form
+-Selling is prohibited in original or derivative form
+-Use Asset in Commercial Projects
+-No Ai, No Nfts

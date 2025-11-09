@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://sg2qagra1v4b"]
+[gd_scene load_steps=0 format=3 uid="uid://sg2qagra1v4b"]
 
 [node name="Slot" type="TextureButton"]
 custom_minimum_size = Vector2(48, 48)
