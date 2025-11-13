@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FireballAttack" load_steps=3 format=3 uid="uid://bapghnayl5g85"]
+
+[ext_resource type="Texture2D" uid="uid://x6y5vpqtc5xa" path="res://sprites/objects/fireball_icon.png" id="1_kj7y7"]
+[ext_resource type="Script" uid="uid://sasnbnmttjbr" path="res://scripts/items/FireballAttack.gd" id="2_kj7y7"]
+
+[resource]
+script = ExtResource("2_kj7y7")
+display_name = "Fireball"
+icon = ExtResource("1_kj7y7")
+max_stack = 20
+metadata/_custom_type_script = "uid://binpfhyvof6ig"
