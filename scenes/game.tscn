@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bv3jofm4fvsk8"]
+[gd_scene load_steps=17 format=3 uid="uid://bv3jofm4fvsk8"]
 
 [ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c8w77f0pe52m0" path="res://Assets/Texture/TX Tileset Grass.png" id="2_iywne"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dvaj8u8qrwvgo" path="res://Assets/Texture/TX Struct.png" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://dsfi55sje82yu" path="res://scenes/spawn_tower.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://2m3ipmb82584" path="res://scenes/surtower.tscn" id="9_0tnpc"]
-[ext_resource type="Script" uid="uid://dshcewvsddq26" path="res://scripts/firetempledoor.gd" id="10_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://t150yyhk5v32" path="res://scenes/TemplePopup.tscn" id="11_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("2_u5sy4")
@@ -1652,31 +1650,6 @@ sources/8 = SubResource("TileSetAtlasSource_dinhu")
 sources/9 = SubResource("TileSetAtlasSource_trtic")
 sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
-atlas = ExtResource("2_u5sy4")
-region = Rect2(0, 80, 72, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
-atlas = ExtResource("2_u5sy4")
-region = Rect2(0, 160, 72, 80)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kvpfn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tnpc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtaks")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
-size = Vector2(41, 25)
-
 [node name="Game" type="Node2D"]
 position = Vector2(-1, 0)
 
@@ -1719,20 +1692,3 @@ position = Vector2(-233, 82)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-526, -269, -518, 20, -638, 22, -640, 90, -511, 105, -511, 311, -175, 309, -194, 373, -194, 393, -145, 397, -124, 388, -123, 311, 92, 313, 183, 309, 186, 99, 288, 99, 288, 32, 180, 29, 185, -28, 176, -116, 177, -150, 174, -258, -133, -265, -129, -356, -168, -376, -213, -372, -183, -260, -529, -265, -243, -447, -81, -424, 104, -364, 285, -337, 436, -128, 470, 178, 468, 301, 423, 397, -24, 416, -455, 392, -665, 336, -854, 274, -1000, 161, -1040, -53, -901, -169)
-
-[node name="firetempledoor" type="Area2D" parent="."]
-script = ExtResource("10_kvpfn")
-next_scene = "res://scenes/firetemplev_2.tscn"
-temple_name = "fireTemple"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="firetempledoor"]
-position = Vector2(-173, -276)
-sprite_frames = SubResource("SpriteFrames_kvpfn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="firetempledoor"]
-position = Vector2(-160, -235)
-shape = SubResource("RectangleShape2D_dinhu")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TemplePopup" parent="CanvasLayer" instance=ExtResource("11_dinhu")]
