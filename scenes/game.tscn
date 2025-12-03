@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bv3jofm4fvsk8"]
+[gd_scene load_steps=22 format=3 uid="uid://bv3jofm4fvsk8"]
 
 [ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c8w77f0pe52m0" path="res://Assets/Texture/TX Tileset Grass.png" id="2_iywne"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://dvaj8u8qrwvgo" path="res://Assets/Texture/TX Struct.png" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://dsfi55sje82yu" path="res://scenes/spawn_tower.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://2m3ipmb82584" path="res://scenes/surtower.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ddgo3xgdolhes" path="res://scenes/inventory/inventory_ui.tscn" id="10_vtaks"]
+[ext_resource type="Script" uid="uid://cpxdhaa1sa333" path="res://scripts/inventory/inventory_ui.gd" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://c1f8nb81kfw1x" path="res://scenes/ui/stats.tscn" id="12_dinhu"]
+[ext_resource type="PackedScene" uid="uid://c8car46mxb8kf" path="res://scenes/pickups/HealthPickup.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://bnjhra2wm2fr8" path="res://scenes/pickups/FireballPickup.tscn" id="14_trtic"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("2_u5sy4")
@@ -1692,3 +1697,21 @@ position = Vector2(-233, 82)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-526, -269, -518, 20, -638, 22, -640, 90, -511, 105, -511, 311, -175, 309, -194, 373, -194, 393, -145, 397, -124, 388, -123, 311, 92, 313, 183, 309, 186, 99, 288, 99, 288, 32, 180, 29, 185, -28, 176, -116, 177, -150, 174, -258, -133, -265, -129, -356, -168, -376, -213, -372, -183, -260, -529, -265, -243, -447, -81, -424, 104, -364, 285, -337, 436, -128, 470, 178, 468, 301, 423, 397, -24, 416, -455, 392, -665, 336, -854, 274, -1000, 161, -1040, -53, -901, -169)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("10_vtaks")]
+script = ExtResource("11_kvpfn")
+player_node_path = NodePath("../../Player")
+
+[node name="Stats" parent="UI" instance=ExtResource("12_dinhu")]
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="HealthPickup" parent="Pickups" instance=ExtResource("13_kvuet")]
+
+[node name="FireballPickup" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-312, 106)
+
+[node name="FireballPickup2" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-244, 179)

@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs3tkmqui3e1o"]
+
+[ext_resource type="Script" uid="uid://3hws2ssi22n1" path="res://scripts/inventory/slot.gd" id="1_a2xxs"]
+[ext_resource type="Texture2D" uid="uid://ems1tnmj06r5" path="res://Assets/Texture/slot.png" id="2_x1gds"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_a2xxs")
+
+[node name="UnselectedNode" type="NinePatchRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x1gds")
+region_rect = Rect2(75, 75.5, 339, 339)
+
+[node name="TextureRect" type="TextureRect" parent="UnselectedNode"]
+clip_contents = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="UnselectedNode"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 25.0
+scale = Vector2(0.23899952, 0.22184856)
+text = "64"
+
+[node name="SelectedVersion" type="NinePatchRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x1gds")
+region_rect = Rect2(95, 96.5, 340, 340)
+
+[node name="TextureRect" type="TextureRect" parent="SelectedVersion"]
+clip_contents = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="SelectedVersion"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 25.0
+scale = Vector2(0.23899952, 0.22184856)
+text = "64"

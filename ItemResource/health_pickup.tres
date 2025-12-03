@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealingPotion" load_steps=3 format=3 uid="uid://bloxajrwx12yx"]
+
+[ext_resource type="Texture2D" uid="uid://b7a1063irmnov" path="res://sprites/objects/health_potion_icon.png" id="1_xmgvt"]
+[ext_resource type="Script" uid="uid://q4c5bpyqj6cr" path="res://scripts/items/HealingPortion.gd" id="2_xmgvt"]
+
+[resource]
+script = ExtResource("2_xmgvt")
+display_name = "Heal  Portion"
+icon = ExtResource("1_xmgvt")
+description = "Health portion for healing"
+metadata/_custom_type_script = "uid://binpfhyvof6ig"
