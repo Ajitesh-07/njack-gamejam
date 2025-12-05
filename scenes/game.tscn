@@ -1658,16 +1658,6 @@ sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 [node name="Game" type="Node2D"]
 position = Vector2(-1, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_yqjtg")]
-z_index = 2
-position = Vector2(-140, 137)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = -510
-limit_top = -264
-limit_right = 180
-limit_bottom = 305
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_iywne")
 format = 2
@@ -1678,20 +1668,32 @@ layer_1/tile_data = PackedInt32Array(196595, 1441792, 17, 262131, 1441792, 18, 3
 layer_2/name = "air2"
 layer_2/tile_data = PackedInt32Array(589822, 917504, 11, 655358, 917504, 12, 720894, 917504, 13, 589823, 983040, 11, 655359, 983040, 12, 720895, 983040, 13, -327682, 917504, 11, -262146, 917504, 12, -262145, 983040, 12, -327681, 983040, 11, -196609, 983040, 13, -196610, 917504, 13, -327701, 917504, 11, -262165, 917504, 12, -262164, 983040, 12, -327700, 983040, 11, -196628, 983040, 13, -196629, 917504, 13, 655339, 917504, 12, 589803, 917504, 11, 589804, 983040, 11, 655340, 983040, 12, 720875, 917504, 13, 720876, 983040, 13)
 
-[node name="Spawn Tower" parent="." instance=ExtResource("8_gee14")]
-position = Vector2(-158, 31)
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="surtower" parent="." instance=ExtResource("9_0tnpc")]
+[node name="Spawn Tower" parent="YSort" instance=ExtResource("8_gee14")]
+position = Vector2(-160, 71)
+
+[node name="surtower" parent="YSort" instance=ExtResource("9_0tnpc")]
 position = Vector2(-105, 82)
 
-[node name="surtower2" parent="." instance=ExtResource("9_0tnpc")]
+[node name="surtower2" parent="YSort" instance=ExtResource("9_0tnpc")]
 position = Vector2(-228, 0)
 
-[node name="surtower3" parent="." instance=ExtResource("9_0tnpc")]
+[node name="surtower3" parent="YSort" instance=ExtResource("9_0tnpc")]
 position = Vector2(-107, 3)
 
-[node name="surtower4" parent="." instance=ExtResource("9_0tnpc")]
+[node name="surtower4" parent="YSort" instance=ExtResource("9_0tnpc")]
 position = Vector2(-233, 82)
+
+[node name="Player" parent="YSort" instance=ExtResource("1_yqjtg")]
+position = Vector2(-140, 137)
+
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+limit_left = -510
+limit_top = -264
+limit_right = 180
+limit_bottom = 305
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -1702,7 +1704,7 @@ polygon = PackedVector2Array(-526, -269, -518, 20, -638, 22, -640, 90, -511, 105
 
 [node name="Inventory" parent="UI" instance=ExtResource("10_vtaks")]
 script = ExtResource("11_kvpfn")
-player_node_path = NodePath("../../Player")
+player_node_path = NodePath("../../YSort/Player")
 
 [node name="Stats" parent="UI" instance=ExtResource("12_dinhu")]
 

@@ -18,14 +18,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l22o2"]
-size = Vector2(35, 28)
+size = Vector2(34, 23)
 
 [node name="Spawn Tower" type="StaticBody2D"]
-z_index = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_2rwwt")
+offset = Vector2(0, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 33)
+y_sort_enabled = true
+position = Vector2(-1, -12)
 shape = SubResource("RectangleShape2D_l22o2")

@@ -18,14 +18,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iqhs"]
-size = Vector2(30, 29)
+size = Vector2(29, 24)
 
 [node name="surtower" type="StaticBody2D"]
-z_index = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0w1q8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 26.5)
+position = Vector2(4.5, 24)
 shape = SubResource("RectangleShape2D_2iqhs")
