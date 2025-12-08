@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cspv58ir5q6gd"]
+
+[ext_resource type="Script" uid="uid://cib81w7b4rj74" path="res://arrow.gd" id="1_2ndhl"]
+[ext_resource type="Texture2D" uid="uid://4x0x7glcedk5" path="res://sprites/GandalfHardcore Archer/arrow.png" id="1_l5ahi"]
+
+[node name="arrow" type="Area2D"]
+script = ExtResource("1_2ndhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l5ahi")

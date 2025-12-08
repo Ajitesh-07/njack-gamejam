@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://bv3jofm4fvsk8"]
+[gd_scene load_steps=23 format=3 uid="uid://bv3jofm4fvsk8"]
 
-[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c8w77f0pe52m0" path="res://Assets/Texture/TX Tileset Grass.png" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://ckqrasn64gx41" path="res://Assets/Texture/TX Props.png" id="2_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c7smmayuuahay" path="res://Assets/Texture/TX Tileset Stone Ground.png" id="3_p57ef"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c1f8nb81kfw1x" path="res://scenes/ui/stats.tscn" id="12_dinhu"]
 [ext_resource type="PackedScene" uid="uid://c8car46mxb8kf" path="res://scenes/pickups/HealthPickup.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://bnjhra2wm2fr8" path="res://scenes/pickups/FireballPickup.tscn" id="14_trtic"]
+[ext_resource type="AudioStream" uid="uid://kcmthqaj4hd0" path="res://music/spawn.wav" id="15_ir15t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("2_u5sy4")
@@ -1715,3 +1716,7 @@ position = Vector2(-312, 106)
 
 [node name="FireballPickup2" parent="Pickups" instance=ExtResource("14_trtic")]
 position = Vector2(-244, 179)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ir15t")
+autoplay = true

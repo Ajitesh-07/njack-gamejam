@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://sm2v40dclltr"]
+
+[ext_resource type="Script" uid="uid://cq4xaffux3txp" path="res://scripts/dragon_fireball.gd" id="1_5nwag"]
+[ext_resource type="Texture2D" uid="uid://bxx3xr2jembrw" path="res://sprites/characters/Flying Demon 2D Pixel Art/Sprites/projectile.png" id="2_s6yad"]
+
+[node name="dragon_fireball" type="Area2D"]
+rotation = 2.8539822
+script = ExtResource("1_5nwag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.536743e-07, -9.536743e-07)
+rotation = -3.1524937
+scale = Vector2(0.41666666, 0.46875)
+texture = ExtResource("2_s6yad")
