@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 150.0
+@export var speed = 170.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 signal health_changed(new_health: float)
@@ -23,6 +23,7 @@ func update_animation():
 	var current_anim = animated_sprite.animation
 
 	if velocity.length() > 0:
+		
 		if velocity.y < 0:
 			animated_sprite.play("back_walk")
 		elif velocity.y > 0:
@@ -31,6 +32,7 @@ func update_animation():
 			animated_sprite.play("side_walk")
 			animated_sprite.flip_h = velocity.x < 0
 	else:
+		
 		if current_anim == "back_walk":
 			animated_sprite.play("back_idle")
 		elif current_anim == "front_walk":
@@ -56,7 +58,7 @@ func cast_fireball():
 	# 1. Create a new fireball instance
 	#var fireball = fireball_scene.instantiate()
 	#
-	## 2. Figure out the direction: from player to mouse
+	## 2. Figure out the direction: from player to mouse 
 	#var direction_to_mouse = (get_global_mouse_position() - global_position).normalized()
 	#
 	## 3. Set the fireball's variables
