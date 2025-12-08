@@ -1,8 +1,11 @@
-[gd_scene load_steps=48 format=3 uid="uid://c1p6jru8esujp"]
+[gd_scene load_steps=52 format=3 uid="uid://c1p6jru8esujp"]
 
 [ext_resource type="Script" uid="uid://bgd45j1loq1pl" path="res://scripts/player.gd" id="1_qm0ti"]
 [ext_resource type="Texture2D" uid="uid://cq0hbw02rdmdf" path="res://sprites/characters/player.png" id="2_fhbv5"]
 [ext_resource type="Script" uid="uid://d32vqucbd7740" path="res://scripts/inventory/inventory.gd" id="3_qhqgy"]
+[ext_resource type="Shader" uid="uid://cs3nyp3oen1dx" path="res://Shaders/darkness.gdshader" id="4_mdl7e"]
+[ext_resource type="Script" uid="uid://dkgwe4ttgm785" path="res://scripts/color_rect.gd" id="5_qu4a1"]
+[ext_resource type="Script" uid="uid://xna45yuevk2f" path="res://scripts/countdown.gd" id="6_70d11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("2_fhbv5")
@@ -334,6 +337,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 radius = 7.071068
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qu4a1"]
+shader = ExtResource("4_mdl7e")
+shader_parameter/circle_radius = 1.0
+shader_parameter/softness = 0.5
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 7
 script = ExtResource("1_qm0ti")
@@ -350,3 +359,29 @@ shape = SubResource("CircleShape2D_3vyb7")
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("3_qhqgy")
 metadata/_custom_type_script = "uid://d32vqucbd7740"
+
+[node name="DarknessIncoming" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="DarknessIncoming"]
+material = SubResource("ShaderMaterial_qu4a1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_qu4a1")
+
+[node name="Label" type="Label" parent="DarknessIncoming"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -71.5
+offset_right = 136.0
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+script = ExtResource("6_70d11")

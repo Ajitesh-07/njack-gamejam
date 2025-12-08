@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvdie372yetla"]
+
+[ext_resource type="Script" uid="uid://chuf8jcre21xk" path="res://scripts/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://d1wfhriiipxkv" path="res://Assets/mainmenu/Gemini_Generated_Image_bqiq7pbqiq7pbqiq(2).png" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://d1lhgy1bl0jyl" path="res://Assets/mainmenu/Gemini_Generated_Image_vkza41vkza41vkza.png" id="1_wu84c"]
+[ext_resource type="Texture2D" uid="uid://otq1bi6ewssr" path="res://Assets/mainmenu/Gemini_Generated_Image_au9t4fau9t4fau9t(1).png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://jajf2elhxskw" path="res://Assets/mainmenu/Gemini_Generated_Image_aw4ic6aw4ic6aw4i(1).png" id="3_8ln24"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
+texture = ExtResource("1_wu84c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
+atlas = ExtResource("1_bqqt6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("2_wu84c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("3_8ln24")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ln24")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ln24")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -1.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_bqqt6")
+texture_pressed = SubResource("AtlasTexture_wu84c")
+texture_hover = SubResource("AtlasTexture_8ln24")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_start_pressed"]

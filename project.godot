@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="Gamejam"
-run/main_scene="uid://bxkajs1skr6vq"
+run/main_scene="uid://bvdie372yetla"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalClock="*res://scripts/GlobalClock.gd"
+Global="*res://scripts/Global.gd"
 
 [display]
 
 window/stretch/scale=4.0
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [input]
 
