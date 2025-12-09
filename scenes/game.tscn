@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bv3jofm4fvsk8"]
+[gd_scene load_steps=28 format=3 uid="uid://bv3jofm4fvsk8"]
 
 [ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c8w77f0pe52m0" path="res://Assets/Texture/TX Tileset Grass.png" id="2_iywne"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8car46mxb8kf" path="res://scenes/pickups/HealthPickup.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://bnjhra2wm2fr8" path="res://scenes/pickups/FireballPickup.tscn" id="14_trtic"]
 [ext_resource type="AudioStream" uid="uid://kcmthqaj4hd0" path="res://music/spawn.wav" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="16_ca42v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("2_u5sy4")
@@ -1656,18 +1657,20 @@ sources/8 = SubResource("TileSetAtlasSource_dinhu")
 sources/9 = SubResource("TileSetAtlasSource_trtic")
 sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
+size = Vector2(57, 43.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rysoc"]
+size = Vector2(54.5, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvqc"]
+size = Vector2(45, 42.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_264po"]
+size = Vector2(53.5, 44.125)
+
 [node name="Game" type="Node2D"]
 position = Vector2(-1, 0)
-
-[node name="Player" parent="." instance=ExtResource("1_yqjtg")]
-z_index = 2
-position = Vector2(-140, 137)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = -510
-limit_top = -264
-limit_right = 180
-limit_bottom = 305
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_iywne")
@@ -1679,31 +1682,45 @@ layer_1/tile_data = PackedInt32Array(196595, 1441792, 17, 262131, 1441792, 18, 3
 layer_2/name = "air2"
 layer_2/tile_data = PackedInt32Array(589822, 917504, 11, 655358, 917504, 12, 720894, 917504, 13, 589823, 983040, 11, 655359, 983040, 12, 720895, 983040, 13, -327682, 917504, 11, -262146, 917504, 12, -262145, 983040, 12, -327681, 983040, 11, -196609, 983040, 13, -196610, 917504, 13, -327701, 917504, 11, -262165, 917504, 12, -262164, 983040, 12, -327700, 983040, 11, -196628, 983040, 13, -196629, 917504, 13, 655339, 917504, 12, 589803, 917504, 11, 589804, 983040, 11, 655340, 983040, 12, 720875, 917504, 13, 720876, 983040, 13)
 
-[node name="Spawn Tower" parent="." instance=ExtResource("8_gee14")]
-position = Vector2(-158, 31)
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="surtower" parent="." instance=ExtResource("9_0tnpc")]
-position = Vector2(-105, 82)
+[node name="Player" parent="YSort" instance=ExtResource("1_yqjtg")]
+z_index = 2
+position = Vector2(-140, 137)
 
-[node name="surtower2" parent="." instance=ExtResource("9_0tnpc")]
-position = Vector2(-228, 0)
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+limit_left = -510
+limit_top = -264
+limit_right = 180
+limit_bottom = 305
 
-[node name="surtower3" parent="." instance=ExtResource("9_0tnpc")]
-position = Vector2(-107, 3)
+[node name="Spawn Tower" parent="YSort" instance=ExtResource("8_gee14")]
+position = Vector2(-159, 69)
 
-[node name="surtower4" parent="." instance=ExtResource("9_0tnpc")]
-position = Vector2(-233, 82)
+[node name="surtower" parent="YSort" instance=ExtResource("9_0tnpc")]
+position = Vector2(-105, 105)
+
+[node name="surtower2" parent="YSort" instance=ExtResource("9_0tnpc")]
+position = Vector2(-228, 23)
+
+[node name="surtower3" parent="YSort" instance=ExtResource("9_0tnpc")]
+position = Vector2(-107, 26)
+
+[node name="surtower4" parent="YSort" instance=ExtResource("9_0tnpc")]
+position = Vector2(-233, 105)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(2, -5)
 polygon = PackedVector2Array(-526, -269, -518, 20, -638, 22, -640, 90, -511, 105, -511, 311, -175, 309, -194, 373, -194, 393, -145, 397, -124, 388, -123, 311, 92, 313, 183, 309, 186, 99, 288, 99, 288, 32, 180, 29, 185, -28, 176, -116, 177, -150, 174, -258, -133, -265, -129, -356, -168, -376, -213, -372, -183, -260, -529, -265, -243, -447, -81, -424, 104, -364, 285, -337, 436, -128, 470, 178, 468, 301, 423, 397, -24, 416, -455, 392, -665, 336, -854, 274, -1000, 161, -1040, -53, -901, -169)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Inventory" parent="UI" instance=ExtResource("10_vtaks")]
 script = ExtResource("11_kvpfn")
-player_node_path = NodePath("../../Player")
+player_node_path = NodePath("../../YSort/Player")
 
 [node name="Stats" parent="UI" instance=ExtResource("12_dinhu")]
 
@@ -1720,3 +1737,64 @@ position = Vector2(-244, 179)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_ir15t")
 autoplay = true
+
+[node name="lobby_fire_door" parent="." instance=ExtResource("16_ca42v")]
+position = Vector2(-156, -262)
+target_scene_path = "uid://bxkajs1skr6vq"
+location_name = "Temple Of Fire"
+target_spawn_tag = "fire_entrance"
+my_spawn_tag = "lobby_fire_door"
+
+[node name="CollisionShape2D" parent="lobby_fire_door" index="0"]
+position = Vector2(-2.5, -14.5625)
+shape = SubResource("RectangleShape2D_ca42v")
+
+[node name="SpawnPosition" parent="lobby_fire_door" index="1"]
+position = Vector2(-3, 31)
+
+[node name="lobby_water_door" parent="." instance=ExtResource("16_ca42v")]
+position = Vector2(-498, 63)
+target_scene_path = "uid://b70682vhk53vl"
+location_name = "Temple Of Water"
+target_spawn_tag = "water_entrance"
+my_spawn_tag = "lobby_water_door"
+
+[node name="CollisionShape2D" parent="lobby_water_door" index="0"]
+position = Vector2(-29.75, 0.5)
+shape = SubResource("RectangleShape2D_rysoc")
+
+[node name="SpawnPosition" parent="lobby_water_door" index="1"]
+position = Vector2(25, 2)
+
+[node name="lobby_lightning_door" parent="." instance=ExtResource("16_ca42v")]
+position = Vector2(-159, 288)
+target_scene_path = "uid://dsh33pchxn1dy"
+location_name = "Temple Of Lightning"
+target_spawn_tag = "lightning_entrance"
+my_spawn_tag = "lobby_lightning_door"
+
+[node name="CollisionShape2D" parent="lobby_lightning_door" index="0"]
+position = Vector2(2, 23)
+shape = SubResource("RectangleShape2D_ssvqc")
+
+[node name="SpawnPosition" parent="lobby_lightning_door" index="1"]
+position = Vector2(-1, -22)
+
+[node name="lobby_earth_door" parent="." instance=ExtResource("16_ca42v")]
+position = Vector2(89, 60)
+target_scene_path = "uid://dton5sh6fi4gd"
+location_name = "Temple Of Forest"
+target_spawn_tag = "forest_entrance"
+my_spawn_tag = "lobby_earth_door"
+
+[node name="CollisionShape2D" parent="lobby_earth_door" index="0"]
+position = Vector2(110, 9)
+shape = SubResource("RectangleShape2D_264po")
+
+[node name="SpawnPosition" parent="lobby_earth_door" index="1"]
+position = Vector2(57, 5)
+
+[editable path="lobby_fire_door"]
+[editable path="lobby_water_door"]
+[editable path="lobby_lightning_door"]
+[editable path="lobby_earth_door"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsh33pchxn1dy"]
+[gd_scene load_steps=9 format=3 uid="uid://dsh33pchxn1dy"]
 
 [ext_resource type="Texture2D" uid="uid://cugciphjxv345" path="res://Assets/ChatGPT Image Nov 14, 2025, 02_21_24 PM.png" id="1_x1wnb"]
 [ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="2_vibj2"]
 [ext_resource type="PackedScene" uid="uid://ckcht0vf57iav" path="res://elec_drag.tscn" id="3_vibj2"]
 [ext_resource type="AudioStream" uid="uid://c3rhlmr4xliyf" path="res://music/temple2.wav" id="4_2pbgd"]
+[ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="5_lg01r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pbgd"]
 texture = ExtResource("1_x1wnb")
@@ -4345,6 +4346,9 @@ texture = ExtResource("1_x1wnb")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2pbgd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg01r"]
+size = Vector2(153, 43.25)
+
 [node name="temple of lighning" type="Node2D"]
 position = Vector2(0, 1)
 
@@ -4375,3 +4379,19 @@ polygon = PackedVector2Array(459, -359, -455, -363, -455, -264, -318, -266, -314
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2pbgd")
 autoplay = true
+
+[node name="lightning_entrance" parent="." instance=ExtResource("5_lg01r")]
+position = Vector2(-8, 399)
+target_scene_path = "uid://bv3jofm4fvsk8"
+location_name = "The Surya Mandala"
+target_spawn_tag = "lobby_lightning_door"
+my_spawn_tag = "lightning_entrance"
+
+[node name="CollisionShape2D" parent="lightning_entrance" index="0"]
+position = Vector2(-2.5, 48.625)
+shape = SubResource("RectangleShape2D_lg01r")
+
+[node name="SpawnPosition" parent="lightning_entrance" index="1"]
+position = Vector2(2, -30)
+
+[editable path="lightning_entrance"]

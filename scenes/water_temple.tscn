@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://b70682vhk53vl"]
+[gd_scene load_steps=40 format=4 uid="uid://b70682vhk53vl"]
 
 [ext_resource type="Texture2D" uid="uid://c8iw22c8srwmy" path="res://Assets/Dungeon Gathering Free Version/Water.png" id="1_rb1xa"]
 [ext_resource type="Texture2D" uid="uid://c5q3rxsav8mug" path="res://Assets/Water Temple Free Sample/Water Temple Sample sheet_16.png" id="2_pqmeb"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bftgbqrdp8id2" path="res://Assets/Texture/Extra/TX Props with Shadow.png" id="15_ge3w2"]
 [ext_resource type="PackedScene" uid="uid://gtj6wa5r6tet" path="res://scenes/water_bat.tscn" id="17_coesa"]
 [ext_resource type="AudioStream" uid="uid://bibb0pfkyshu3" path="res://music/temple.wav" id="18_wxqjb"]
+[ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="19_vrjnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxqjb"]
 texture = ExtResource("1_rb1xa")
@@ -1749,6 +1750,9 @@ texture = ExtResource("15_ge3w2")
 [sub_resource type="TileSet" id="TileSet_dhhh7"]
 sources/0 = SubResource("TileSetAtlasSource_incsq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrjnu"]
+size = Vector2(78, 42.25)
+
 [node name="WaterTemple" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1806,3 +1810,24 @@ position = Vector2(-19, 86)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_wxqjb")
 autoplay = true
+
+[node name="water_entrance" parent="." instance=ExtResource("19_vrjnu")]
+position = Vector2(-1, 208)
+target_scene_path = "uid://bv3jofm4fvsk8"
+location_name = "The Surya Mandala"
+target_spawn_tag = "lobby_water_door"
+my_spawn_tag = "water_entrance"
+
+[node name="CollisionShape2D" parent="water_entrance" index="0"]
+position = Vector2(1, 24)
+shape = SubResource("RectangleShape2D_vrjnu")
+
+[node name="SpawnPosition" parent="water_entrance" index="1"]
+position = Vector2(1, -18)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-229, -201, -228, 179, -34, 182, -40, 254, -39, 260, 44, 257, 41, 177, 43, 179, 49, 184, 208, 177, 209, -195, 202, -290, 65, -290, 63, -193, -78, -194, -79, -291, -225, -287, -231, -213, -258, -212, -286, -178, -419, -282, -367, -372, -194, -405, 158, -425, 395, -336, 386, -110, 382, 92, 376, 133, 336, 321, 227, 378, 20, 415, -281, 374, -361, 193, -306, 34)
+
+[editable path="water_entrance"]

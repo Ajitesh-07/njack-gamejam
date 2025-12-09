@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bxkajs1skr6vq"]
+[gd_scene load_steps=17 format=4 uid="uid://bxkajs1skr6vq"]
 
 [ext_resource type="Texture2D" uid="uid://be4ip3r1t70yt" path="res://Assets/Foozle_2DT0011_Lucifer_Lava_Tileset_Pixel_Art/LavaDungeonTileset.png" id="1_336dw"]
 [ext_resource type="Texture2D" uid="uid://25mado80gsae" path="res://Assets/Foozle_2DT0011_Lucifer_Lava_Tileset_Pixel_Art/LavaMockup.png" id="2_rxpi8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bftgbqrdp8id2" path="res://Assets/Texture/Extra/TX Props with Shadow.png" id="4_fqnyr"]
 [ext_resource type="PackedScene" uid="uid://ruup11j77tg7" path="res://scenes/dragon.tscn" id="6_nppb0"]
 [ext_resource type="AudioStream" uid="uid://bi02hxk27tsr5" path="res://music/temple 4.wav" id="7_5w8f1"]
+[ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="8_aj0tw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nppb0"]
 texture = ExtResource("1_336dw")
@@ -155,13 +156,11 @@ texture = ExtResource("1_336dw")
 22:6/0 = 0
 23:6/0 = 0
 24:6/0 = 0
-24:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 25:6/0 = 0
-25:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+25:6/0/z_index = 9
 26:6/0 = 0
-26:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+26:6/0/z_index = 9
 27:6/0 = 0
-27:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 28:6/0 = 0
 29:6/0 = 0
 30:6/0 = 0
@@ -185,13 +184,13 @@ texture = ExtResource("1_336dw")
 22:7/0 = 0
 23:7/0 = 0
 24:7/0 = 0
-24:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+24:7/0/z_index = 9
 25:7/0 = 0
-25:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+25:7/0/z_index = 9
 26:7/0 = 0
-26:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+26:7/0/z_index = 9
 27:7/0 = 0
-27:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:7/0/z_index = 9
 28:7/0 = 0
 29:7/0 = 0
 30:7/0 = 0
@@ -213,13 +212,13 @@ texture = ExtResource("1_336dw")
 22:8/0 = 0
 23:8/0 = 0
 24:8/0 = 0
-24:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+24:8/0/z_index = 9
 25:8/0 = 0
-25:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+25:8/0/z_index = 9
 26:8/0 = 0
-26:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+26:8/0/z_index = 9
 27:8/0 = 0
-27:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+27:8/0/z_index = 9
 28:8/0 = 0
 29:8/0 = 0
 30:8/0 = 0
@@ -3977,6 +3976,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_aj0tw")
 sources/1 = SubResource("TileSetAtlasSource_61bp3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj0tw"]
+size = Vector2(65, 28.125)
+
 [node name="firetemplev2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -3995,7 +3997,7 @@ tile_map_data = PackedByteArray("AADw/wwAAQAQAAIAAAAMAAsAAQAQAAIAAADw//b/AQAQAAI
 tile_set = SubResource("TileSet_u8ybr")
 
 [node name="Player" parent="." instance=ExtResource("3_fqnyr")]
-position = Vector2(147, 194.00002)
+position = Vector2(-15.999998, 244)
 rotation = -0.036858592
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -4008,7 +4010,7 @@ limit_bottom = 336
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="top" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-284, -229)
+position = Vector2(-294, -216)
 polygon = PackedVector2Array(0, -1, 379, -5, 536, 4, 496, -42, 267, -90, 43, -48)
 
 [node name="bottom" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -4016,11 +4018,11 @@ position = Vector2(-284, 337)
 polygon = PackedVector2Array(2, 1, 544, -1, 439, 112, -3, 58)
 
 [node name="left" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-289, -223)
+position = Vector2(-296, -223)
 polygon = PackedVector2Array(2, 5, -7, 125, -9, 395, -9, 491, 5, 567, -229, 503, -167, 207, -142, 43)
 
 [node name="right" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(255, -223)
+position = Vector2(299, -218)
 polygon = PackedVector2Array(-1, 2, 12, 62, 9, 129, 13, 557, 234, 414, 222, 242, 135, 41)
 
 [node name="dragon" parent="." instance=ExtResource("6_nppb0")]
@@ -4029,3 +4031,23 @@ position = Vector2(54, 185)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_5w8f1")
 autoplay = true
+
+[node name="fire_entrance" parent="." instance=ExtResource("8_aj0tw")]
+target_scene_path = "uid://bv3jofm4fvsk8"
+location_name = "The Surya Mandala"
+target_spawn_tag = "lobby_fire_door"
+my_spawn_tag = "fire_entrance"
+
+[node name="CollisionShape2D" parent="fire_entrance" index="0"]
+position = Vector2(-16.5, 322.0625)
+shape = SubResource("RectangleShape2D_aj0tw")
+
+[node name="SpawnPosition" parent="fire_entrance" index="1"]
+position = Vector2(-17, 274)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-284, -197, 242, -195, 244, 253, 240, 256, 14, 258, 17, 334, 17, 340, -53, 339, -52, 257, -276, 256, -277, -185, -296, -165, -296, -104, -312, -61, -321, -8, -332, 57, -331, 110, -315, 244, -281, 325, -195, 404, -7, 437, 70, 403, 194, 375, 290, 285, 327, 110, 287, -253, 191, -265, 14, -272, -212, -253)
+
+[editable path="fire_entrance"]

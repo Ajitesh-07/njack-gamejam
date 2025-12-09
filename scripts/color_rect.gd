@@ -1,26 +1,30 @@
 extends ColorRect
 
 # Visual settings
-var start_radius: float = 0.9
-var end_radius: float = 0.3
+var start_radius: float = 0.8
+# You updated this to 0.25 recently
+var end_radius: float = 0.25  
 
 func _ready():
-	# Update immediately so there is no "flash" of light when entering a new scene
+	# Update immediately so there is no "flash" of light
 	update_darkness()
 
 func _process(delta):
 	update_darkness()
 
 func update_darkness():
-	# 1. Get Time
+	# Safety check
+	if not GlobalClock:
+		return
+		
 	var current_time = GlobalClock.time_left
 	
-	# 2. Handle Game Over
+	# Handle Game Over (Total Blackness)
 	if GlobalClock.is_game_over:
 		material.set_shader_parameter("circle_radius", 0.0)
 		return
 
-	# 3. Calculate Darkness
+	# --- 1. Calculate Radius (Size) ---
 	var time_left_minutes = current_time / 60.0
 	var target_radius = start_radius
 
@@ -33,5 +37,19 @@ func update_darkness():
 		var first_leg_progress = 1.0 - ((current_time - 300.0) / 600.0)
 		target_radius = lerp(start_radius, 0.5, first_leg_progress)
 
-	# 4. Apply
+	# --- 2. PULSE EFFECT (New Red Flash Logic) ---
+	# Only happens in the final 60 seconds
+	if current_time <= 60.0:
+		var pulse_speed = 8.0 
+		# This creates a value that goes up and down between 0 and 1
+		var pulse_amount = (sin(current_time * pulse_speed) + 1.0) * 0.5 
+		
+		# Mix Black with Dark Red
+		var danger_color = Color(0.0, 0.0, 0.0).lerp(Color(0.5, 0.0, 0.0), pulse_amount * 0.6)
+		material.set_shader_parameter("vignette_color", danger_color)
+	else:
+		# If more than 60s left, keep it pure black
+		material.set_shader_parameter("vignette_color", Color(0.0, 0.0, 0.0))
+
+	# --- 3. Apply the Size ---
 	material.set_shader_parameter("circle_radius", target_radius)

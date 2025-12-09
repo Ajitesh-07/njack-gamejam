@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ursfpecfbmxv"]
+
+[ext_resource type="Script" uid="uid://jj3wjxtnrv58" path="res://scripts/SceneManager.gd" id="1_we8k5"]
+
+[sub_resource type="Theme" id="Theme_we8k5"]
+default_font_size = 10
+
+[node name="SceneManager" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_we8k5")
+
+[node name="SceneConfirmDialog" type="ConfirmationDialog" parent="."]
+process_mode = 3
+min_size = Vector2i(0, 0)
+max_size = Vector2i(32766, 32768)
+theme = SubResource("Theme_we8k5")
+dialog_text = "Do You Want To Travel?"
+
+[connection signal="canceled" from="SceneConfirmDialog" to="." method="_on_cancelled"]
+[connection signal="canceled" from="SceneConfirmDialog" to="." method="_on_canceled"]
+[connection signal="confirmed" from="SceneConfirmDialog" to="." method="_on_scene_confirm_dialog_confirmed"]
+[connection signal="confirmed" from="SceneConfirmDialog" to="." method="_on_confirmed"]

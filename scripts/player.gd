@@ -70,3 +70,30 @@ func cast_fireball():
 	#
 	## 5. Add the fireball to the main scene (NOT the player)
 	#get_tree().root.add_child(fireball)
+func _ready():
+	# Wait for world to load
+	await get_tree().process_frame
+	
+	# 1. GET THE TAG
+	var incoming_tag = SceneManager.get_spawn_tag()
+	print("----- SPAWN DEBUG -----")
+	print("1. Scene Manager sent tag: [", incoming_tag, "]")
+	
+	if incoming_tag == "":
+		print("FAIL: Tag is empty. You likely didn't set 'Target Spawn Tag' on the door you just walked through.")
+		return
+	
+	# 2. FIND THE DOORS
+	var portals = get_tree().get_nodes_in_group("Portals")
+	print("2. Found ", portals.size(), " portals in this scene.")
+	
+	# 3. MATCH THE TAG
+	for portal in portals:
+		print("   - Checking portal with 'My Spawn Tag': [", portal.my_spawn_tag, "]")
+		if portal.my_spawn_tag == incoming_tag:
+			print("SUCCESS: Match found! Teleporting player.")
+			global_position = portal.get_node("SpawnPosition").global_position
+			return
+			
+	print("FAIL: No portal matched the tag. Check for typos!")
+	print("-----------------------")

@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalClock="*res://scripts/GlobalClock.gd"
-Global="*res://scripts/Global.gd"
+SceneManager="*res://scenes/scene_manager.tscn"
 
 [display]
 
