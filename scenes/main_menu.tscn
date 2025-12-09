@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvdie372yetla"]
+[gd_scene load_steps=11 format=3 uid="uid://bvdie372yetla"]
 
 [ext_resource type="Script" uid="uid://chuf8jcre21xk" path="res://scripts/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://d1wfhriiipxkv" path="res://Assets/mainmenu/Gemini_Generated_Image_bqiq7pbqiq7pbqiq(2).png" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://d1lhgy1bl0jyl" path="res://Assets/mainmenu/Gemini_Generated_Image_vkza41vkza41vkza.png" id="1_wu84c"]
 [ext_resource type="Texture2D" uid="uid://otq1bi6ewssr" path="res://Assets/mainmenu/Gemini_Generated_Image_au9t4fau9t4fau9t(1).png" id="2_wu84c"]
 [ext_resource type="Texture2D" uid="uid://jajf2elhxskw" path="res://Assets/mainmenu/Gemini_Generated_Image_aw4ic6aw4ic6aw4i(1).png" id="3_8ln24"]
+[ext_resource type="AudioStream" uid="uid://byph8bf1nfv2p" path="res://Assets/shark-charge-forward-223571.mp3" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
 texture = ExtResource("1_wu84c")
@@ -54,5 +55,10 @@ texture_pressed = SubResource("AtlasTexture_wu84c")
 texture_hover = SubResource("AtlasTexture_8ln24")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rtw2f")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_start_pressed"]

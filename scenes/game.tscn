@@ -1783,7 +1783,7 @@ position = Vector2(-1, -22)
 [node name="lobby_earth_door" parent="." instance=ExtResource("16_ca42v")]
 position = Vector2(89, 60)
 target_scene_path = "uid://dton5sh6fi4gd"
-location_name = "Temple Of Forest"
+location_name = "Temple Of Earth"
 target_spawn_tag = "forest_entrance"
 my_spawn_tag = "lobby_earth_door"
 
@@ -1794,6 +1794,11 @@ shape = SubResource("RectangleShape2D_264po")
 [node name="SpawnPosition" parent="lobby_earth_door" index="1"]
 position = Vector2(57, 5)
 
+[editable path="YSort/Spawn Tower"]
+[editable path="YSort/surtower"]
+[editable path="YSort/surtower2"]
+[editable path="YSort/surtower3"]
+[editable path="YSort/surtower4"]
 [editable path="lobby_fire_door"]
 [editable path="lobby_water_door"]
 [editable path="lobby_lightning_door"]

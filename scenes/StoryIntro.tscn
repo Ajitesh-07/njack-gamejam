@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwua6e1prq871"]
+
+[ext_resource type="Script" uid="uid://ytq3631yn14h" path="res://scripts/story_intro.gd" id="1_pl06e"]
+[ext_resource type="FontFile" uid="uid://cgl7bjji5whw3" path="res://Assets/ThaleahFat.ttf" id="2_ry7ir"]
+[ext_resource type="AudioStream" uid="uid://bfiqnsfanwrey" path="res://Assets/beata-dark-pagan-norse-background-music-129817.mp3" id="3_q24yy"]
+
+[node name="StoryIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pl06e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_ry7ir")
+bbcode_enabled = true
+fit_content = true
+
+[node name="PromptLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ry7ir")
+text = "Click to Continue"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.23900445, 0.23900445, 0.23900445, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.023000002
+anchor_top = 0.9710001
+anchor_right = 0.023000002
+anchor_bottom = 0.9710001
+offset_left = 0.5039978
+offset_top = -5.208069
+offset_right = 112.504
+offset_bottom = 5.791931
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ry7ir")
+theme_override_font_sizes/font_size = 11
+text = "Click Esc To Skip"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q24yy")
+volume_db = -15.0
+autoplay = true

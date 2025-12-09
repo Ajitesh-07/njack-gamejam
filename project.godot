@@ -15,6 +15,10 @@ run/main_scene="uid://bvdie372yetla"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/text_to_speech=true
+
 [autoload]
 
 GlobalClock="*res://scripts/GlobalClock.gd"

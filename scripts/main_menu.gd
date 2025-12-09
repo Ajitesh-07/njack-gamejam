@@ -12,5 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	GlobalClock.start_timer()
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/StoryIntro.tscn")

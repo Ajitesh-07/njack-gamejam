@@ -28,9 +28,11 @@ sprite_frames = SubResource("SpriteFrames_0w1q8")
 offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(5, 6)
 shape = SubResource("RectangleShape2D_2iqhs")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(5.5, 2.25)
 shape = SubResource("RectangleShape2D_2iqhs")

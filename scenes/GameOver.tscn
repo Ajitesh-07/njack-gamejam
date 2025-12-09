@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyb5s0hthyjm3"]
+
+[ext_resource type="Texture2D" uid="uid://bijbtyvamujm2" path="res://Assets/mainmenu/Gemini_Generated_Image_5q4ip35q4ip35q4i.png" id="1_6bcno"]
+[ext_resource type="Script" uid="uid://dx0d3ohf5m444" path="res://scripts/game_over.gd" id="1_j3qfp"]
+[ext_resource type="Texture2D" uid="uid://dwir08glcs1aw" path="res://Assets/retry/retrynorm.png" id="2_4noiy"]
+[ext_resource type="Texture2D" uid="uid://b1wngr16uo14y" path="res://Assets/retry/retry pressed.png" id="3_gijjb"]
+[ext_resource type="Texture2D" uid="uid://bc8c1hplh4wxb" path="res://Assets/retry/retry hover.png" id="4_88ekj"]
+[ext_resource type="Texture2D" uid="uid://dt0l2h62sh6em" path="res://Assets/retmainscreen/retnorm.png" id="5_0winm"]
+[ext_resource type="Texture2D" uid="uid://bhauc84or3lo5" path="res://Assets/retmainscreen/retpressed.png" id="6_j3qfp"]
+[ext_resource type="Texture2D" uid="uid://c2f5mxndvk3u7" path="res://Assets/retmainscreen/rethover.png" id="7_skdqa"]
+[ext_resource type="AudioStream" uid="uid://bdmxdvevxlp06" path="res://Assets/Game_Over_1.wav" id="9_skdqa"]
+[ext_resource type="AudioStream" uid="uid://cnm5pbw0tkswx" path="res://Assets/Virtutes Instrumenti-by-Kevin-Macleod.mp3" id="10_8dkuh"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j3qfp")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UIPanel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6bcno")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="retry" type="TextureButton" parent="UIPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42200002
+anchor_top = 0.88100004
+anchor_right = 0.42200002
+anchor_bottom = 0.88100004
+offset_left = -14.144012
+offset_top = -5.8880005
+offset_right = 13.855988
+offset_bottom = 5.1119995
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_4noiy")
+texture_pressed = ExtResource("3_gijjb")
+texture_hover = ExtResource("4_88ekj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="main menu" type="TextureButton" parent="UIPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.565
+anchor_top = 0.87700003
+anchor_right = 0.565
+anchor_bottom = 0.87700003
+offset_left = -18.880005
+offset_top = -5.2960205
+offset_right = 13.119995
+offset_bottom = 5.7039795
+texture_normal = ExtResource("5_0winm")
+texture_pressed = ExtResource("6_j3qfp")
+texture_hover = ExtResource("7_skdqa")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_skdqa")
+autoplay = true
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_8dkuh")
+
+[connection signal="pressed" from="UIPanel/retry" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="UIPanel/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UIPanel/main menu" to="." method="_on_main_menu_button_pressed"]
