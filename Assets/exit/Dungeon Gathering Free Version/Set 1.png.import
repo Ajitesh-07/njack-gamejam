@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8iw22c8srwmy"
-path="res://.godot/imported/Water.png-13da4754dd944791a63650b111253b95.ctex"
+uid="uid://5equut82gbtg"
+path="res://.godot/imported/Set 1.png-b8a47497018ffb09c40164897ebac65c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Water.png"
-dest_files=["res://.godot/imported/Water.png-13da4754dd944791a63650b111253b95.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Set 1.png"
+dest_files=["res://.godot/imported/Set 1.png-b8a47497018ffb09c40164897ebac65c.ctex"]
 
 [params]
 

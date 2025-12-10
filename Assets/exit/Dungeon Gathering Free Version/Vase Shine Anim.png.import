@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c81d1fdfxbnr5"
-path="res://.godot/imported/Button.png-758ff2a7840ff69c6e06f344f8e50a1e.ctex"
+uid="uid://cm51c47yqohl8"
+path="res://.godot/imported/Vase Shine Anim.png-1cfebe23ac6a54ffb2b1cb0f13444da3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Button.png"
-dest_files=["res://.godot/imported/Button.png-758ff2a7840ff69c6e06f344f8e50a1e.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Vase Shine Anim.png"
+dest_files=["res://.godot/imported/Vase Shine Anim.png-1cfebe23ac6a54ffb2b1cb0f13444da3.ctex"]
 
 [params]
 

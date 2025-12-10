@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cygqdkwstumbd"
-path="res://.godot/imported/Torch Yellow R.png-11ee7794b06c011fe0037af2f577b378.ctex"
+uid="uid://c81d1fdfxbnr5"
+path="res://.godot/imported/Button.png-7b3ecbcd735b97c86af9a673f24d7f81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Torch Yellow R.png"
-dest_files=["res://.godot/imported/Torch Yellow R.png-11ee7794b06c011fe0037af2f577b378.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Button.png"
+dest_files=["res://.godot/imported/Button.png-7b3ecbcd735b97c86af9a673f24d7f81.ctex"]
 
 [params]
 

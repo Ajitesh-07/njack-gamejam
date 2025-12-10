@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkkwpj82da8g3"
-path="res://.godot/imported/Structure.png-da08fcc150cc859cd0a8904d08fb9a4a.ctex"
+uid="uid://8arx6nhurqlt"
+path="res://.godot/imported/Torch Yellow.png-9009e22422757936dcc2f3982f5ed4d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Structure.png"
-dest_files=["res://.godot/imported/Structure.png-da08fcc150cc859cd0a8904d08fb9a4a.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Torch Yellow.png"
+dest_files=["res://.godot/imported/Torch Yellow.png-9009e22422757936dcc2f3982f5ed4d2.ctex"]
 
 [params]
 

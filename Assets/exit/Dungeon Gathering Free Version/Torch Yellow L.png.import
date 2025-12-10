@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlnrnwhp5r1us"
-path="res://.godot/imported/Coin Sheet.png-68d4f6b387c7cefc7792eb21fd310749.ctex"
+uid="uid://ckg82fgsor1fn"
+path="res://.godot/imported/Torch Yellow L.png-d151fe60c98b105e92f391f034e06805.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Coin Sheet.png"
-dest_files=["res://.godot/imported/Coin Sheet.png-68d4f6b387c7cefc7792eb21fd310749.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Torch Yellow L.png"
+dest_files=["res://.godot/imported/Torch Yellow L.png-d151fe60c98b105e92f391f034e06805.ctex"]
 
 [params]
 

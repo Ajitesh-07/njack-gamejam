@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvdie372yetla"]
+[gd_scene load_steps=14 format=3 uid="uid://bvdie372yetla"]
 
 [ext_resource type="Script" uid="uid://chuf8jcre21xk" path="res://scripts/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://d1wfhriiipxkv" path="res://Assets/mainmenu/Gemini_Generated_Image_bqiq7pbqiq7pbqiq(2).png" id="1_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://d1lhgy1bl0jyl" path="res://Assets/mainmenu/Gemini_Generated_Image_vkza41vkza41vkza.png" id="1_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b7h3c26vlpdv6" path="res://Assets/exit/Gemini_Generated_Image_vkza41vkza41vkza (2).png" id="2_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://otq1bi6ewssr" path="res://Assets/mainmenu/Gemini_Generated_Image_au9t4fau9t4fau9t(1).png" id="2_wu84c"]
 [ext_resource type="Texture2D" uid="uid://jajf2elhxskw" path="res://Assets/mainmenu/Gemini_Generated_Image_aw4ic6aw4ic6aw4i(1).png" id="3_8ln24"]
+[ext_resource type="Texture2D" uid="uid://cd0uvje7fsakh" path="res://Assets/exit/exitnorm.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dg18qs2mvfoln" path="res://Assets/exit/exitpressed.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://dp3wlcx587t5d" path="res://Assets/exit/exithov.png" id="5_tbmy8"]
 [ext_resource type="AudioStream" uid="uid://byph8bf1nfv2p" path="res://Assets/shark-charge-forward-223571.mp3" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
-texture = ExtResource("1_wu84c")
+texture = ExtResource("2_jk1qb")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
 atlas = ExtResource("1_bqqt6")
@@ -56,9 +59,29 @@ texture_hover = SubResource("AtlasTexture_8ln24")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Exit" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.485
+anchor_top = 0.82000005
+anchor_right = 0.485
+anchor_bottom = 0.82000005
+offset_left = -35.72003
+offset_top = -16.360046
+offset_right = 36.27997
+offset_bottom = 16.639954
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_rtw2f")
+texture_pressed = ExtResource("4_oa1go")
+texture_hover = ExtResource("5_tbmy8")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rtw2f")
 volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf8su60ph07n1"
-path="res://.godot/imported/Potions.png-a72a70608c95f472ed8bd8e2f39507d0.ctex"
+path="res://.godot/imported/Potions.png-fda89b036236a3abe05c6e407a0e5031.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Potions.png"
-dest_files=["res://.godot/imported/Potions.png-a72a70608c95f472ed8bd8e2f39507d0.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Potions.png"
+dest_files=["res://.godot/imported/Potions.png-fda89b036236a3abe05c6e407a0e5031.ctex"]
 
 [params]
 

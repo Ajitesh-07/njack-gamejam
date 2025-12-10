@@ -373,16 +373,17 @@ grow_vertical = 2
 script = ExtResource("5_qu4a1")
 
 [node name="Label" type="Label" parent="DarknessIncoming"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -136.0
-offset_top = -71.5
-offset_right = 136.0
-offset_bottom = 71.5
+anchors_preset = -1
+anchor_left = 0.16800001
+anchor_top = 0.187
+anchor_right = 0.16800001
+anchor_bottom = 0.187
+offset_left = -43.53601
+offset_top = -31.176003
+offset_right = 44.46399
+offset_bottom = 31.823997
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
 script = ExtResource("6_70d11")

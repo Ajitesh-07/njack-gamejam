@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8arx6nhurqlt"
-path="res://.godot/imported/Torch Yellow.png-5393a9e90c50b2e2fe1d6f7f49012fa7.ctex"
+uid="uid://etq14b47wti5"
+path="res://.godot/imported/Potion 3.png-9a83e2d36de97578c38d7ab63e06dc4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Torch Yellow.png"
-dest_files=["res://.godot/imported/Torch Yellow.png-5393a9e90c50b2e2fe1d6f7f49012fa7.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Potion 3.png"
+dest_files=["res://.godot/imported/Potion 3.png-9a83e2d36de97578c38d7ab63e06dc4a.ctex"]
 
 [params]
 

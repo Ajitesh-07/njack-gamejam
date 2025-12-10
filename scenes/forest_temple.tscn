@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://dton5sh6fi4gd"]
 
 [ext_resource type="Texture2D" uid="uid://dcb2crym2jw60" path="res://Assets/temple/example_tiled_map.png" id="1_6ntre"]
-[ext_resource type="Texture2D" uid="uid://cm51c47yqohl8" path="res://Assets/Dungeon Gathering Free Version/Vase Shine Anim.png" id="2_ff7rv"]
+[ext_resource type="Texture2D" uid="uid://cm51c47yqohl8" path="res://Assets/exit/Dungeon Gathering Free Version/Vase Shine Anim.png" id="2_ff7rv"]
 [ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="2_wdiyr"]
 [ext_resource type="Texture2D" uid="uid://c7smmayuuahay" path="res://Assets/Texture/TX Tileset Stone Ground.png" id="3_wyba5"]
 [ext_resource type="Texture2D" uid="uid://dvaj8u8qrwvgo" path="res://Assets/Texture/TX Struct.png" id="4_gr253"]

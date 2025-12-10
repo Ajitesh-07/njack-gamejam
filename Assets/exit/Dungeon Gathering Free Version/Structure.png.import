@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gi5bb24e8b4p"
-path="res://.godot/imported/Potion 2.png-df032ab00a9fa32fb53bf93a4b3764d0.ctex"
+uid="uid://bkkwpj82da8g3"
+path="res://.godot/imported/Structure.png-cfe0a4580b340d3d8f74844918b51da7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Dungeon Gathering Free Version/Potion 2.png"
-dest_files=["res://.godot/imported/Potion 2.png-df032ab00a9fa32fb53bf93a4b3764d0.ctex"]
+source_file="res://Assets/exit/Dungeon Gathering Free Version/Structure.png"
+dest_files=["res://.godot/imported/Structure.png-cfe0a4580b340d3d8f74844918b51da7.ctex"]
 
 [params]
 
