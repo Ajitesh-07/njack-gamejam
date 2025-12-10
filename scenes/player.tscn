@@ -1,11 +1,15 @@
-[gd_scene load_steps=52 format=3 uid="uid://c1p6jru8esujp"]
+[gd_scene load_steps=56 format=3 uid="uid://c1p6jru8esujp"]
 
 [ext_resource type="Script" uid="uid://bgd45j1loq1pl" path="res://scripts/player.gd" id="1_qm0ti"]
 [ext_resource type="Texture2D" uid="uid://cq0hbw02rdmdf" path="res://sprites/characters/player.png" id="2_fhbv5"]
 [ext_resource type="Script" uid="uid://d32vqucbd7740" path="res://scripts/inventory/inventory.gd" id="3_qhqgy"]
 [ext_resource type="Shader" uid="uid://cs3nyp3oen1dx" path="res://Shaders/darkness.gdshader" id="4_mdl7e"]
 [ext_resource type="Script" uid="uid://dkgwe4ttgm785" path="res://scripts/color_rect.gd" id="5_qu4a1"]
+[ext_resource type="FontFile" uid="uid://cgl7bjji5whw3" path="res://Assets/ThaleahFat.ttf" id="6_6eyey"]
 [ext_resource type="Script" uid="uid://xna45yuevk2f" path="res://scripts/countdown.gd" id="6_70d11"]
+[ext_resource type="Script" uid="uid://dyf17jrlhd63g" path="res://scripts/eclipse_clock.gd" id="7_bruh7"]
+[ext_resource type="Texture2D" uid="uid://c7c6bmhaprooa" path="res://Assets/EclipseClock/Gemini_Generated_Image_ryitq4ryitq4ryit(1).png" id="8_6eyey"]
+[ext_resource type="Texture2D" uid="uid://dxpimm7l3w32y" path="res://Assets/EclipseClock/Gemini_Generated_Image_qelo1mqelo1mqelo(1).png" id="9_d3wef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("2_fhbv5")
@@ -374,16 +378,55 @@ script = ExtResource("5_qu4a1")
 
 [node name="Label" type="Label" parent="DarknessIncoming"]
 anchors_preset = -1
-anchor_left = 0.16800001
-anchor_top = 0.187
-anchor_right = 0.16800001
-anchor_bottom = 0.187
-offset_left = -43.53601
-offset_top = -31.176003
-offset_right = 44.46399
-offset_bottom = 31.823997
+anchor_left = 0.186
+anchor_top = 0.38500002
+anchor_right = 0.186
+anchor_bottom = 0.38500002
+offset_left = -44.272003
+offset_top = -31.480011
+offset_right = 43.727997
+offset_bottom = 31.519989
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_6eyey")
 theme_override_font_sizes/font_size = 13
 script = ExtResource("6_70d11")
+
+[node name="EclipseClock" type="Control" parent="DarknessIncoming"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 35.0
+offset_bottom = 29.0
+script = ExtResource("7_bruh7")
+
+[node name="Sun" type="TextureRect" parent="DarknessIncoming/EclipseClock"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -10.5
+offset_right = 12.0
+offset_bottom = 11.5
+texture = ExtResource("8_6eyey")
+expand_mode = 1
+
+[node name="Moon" type="TextureRect" parent="DarknessIncoming/EclipseClock"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.462
+anchor_top = 0.522
+anchor_right = -0.462
+anchor_bottom = 0.522
+offset_left = -12.987998
+offset_top = -12.0060005
+offset_right = 13.012
+offset_bottom = 11.9939995
+texture = ExtResource("9_d3wef")
+expand_mode = 1
