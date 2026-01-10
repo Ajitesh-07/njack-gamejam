@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvdie372yetla"]
+[gd_scene load_steps=20 format=3 uid="uid://bvdie372yetla"]
 
 [ext_resource type="Script" uid="uid://chuf8jcre21xk" path="res://scripts/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://d1wfhriiipxkv" path="res://Assets/mainmenu/Gemini_Generated_Image_bqiq7pbqiq7pbqiq(2).png" id="1_bqqt6"]
@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dg18qs2mvfoln" path="res://Assets/exit/exitpressed.png" id="4_oa1go"]
 [ext_resource type="Texture2D" uid="uid://dp3wlcx587t5d" path="res://Assets/exit/exithov.png" id="5_tbmy8"]
 [ext_resource type="AudioStream" uid="uid://byph8bf1nfv2p" path="res://Assets/shark-charge-forward-223571.mp3" id="6_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://djrhydmdt1uoy" path="res://Assets/EclipseClock/control norm.png" id="9_flqon"]
+[ext_resource type="Texture2D" uid="uid://dxu6tksyrd0k7" path="res://Assets/EclipseClock/contols pressed.png" id="10_rcqid"]
+[ext_resource type="Texture2D" uid="uid://b44nuukwreh2e" path="res://Assets/EclipseClock/control hover.png" id="11_1ajci"]
+[ext_resource type="PackedScene" uid="uid://eivecvjafein" path="res://scenes/ControlsPopup.tscn" id="12_rcqid"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
 texture = ExtResource("2_jk1qb")
@@ -21,6 +25,12 @@ atlas = ExtResource("2_wu84c")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
 atlas = ExtResource("3_8ln24")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b55j"]
+atlas = ExtResource("9_flqon")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pajh"]
+atlas = ExtResource("11_1ajci")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -42,15 +52,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_8ln24")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -43.0
-offset_top = -1.0
-offset_right = 34.0
-offset_bottom = 32.0
+anchors_preset = -1
+anchor_left = 0.49100003
+anchor_top = 0.568
+anchor_right = 0.49100003
+anchor_bottom = 0.568
+offset_left = -33.63202
+offset_top = -12.064026
+offset_right = 34.36798
+offset_bottom = 11.935974
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = SubResource("AtlasTexture_bqqt6")
@@ -62,14 +72,14 @@ stretch_mode = 0
 [node name="Exit" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.485
-anchor_top = 0.82000005
-anchor_right = 0.485
-anchor_bottom = 0.82000005
-offset_left = -35.72003
-offset_top = -16.360046
-offset_right = 36.27997
-offset_bottom = 16.639954
+anchor_left = 0.49
+anchor_top = 0.897
+anchor_right = 0.49
+anchor_bottom = 0.897
+offset_left = -33.47998
+offset_top = -11.255981
+offset_right = 34.52002
+offset_bottom = 11.744019
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("3_rtw2f")
@@ -78,6 +88,27 @@ texture_hover = ExtResource("5_tbmy8")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Controls" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48600003
+anchor_top = 0.73600006
+anchor_right = 0.48600003
+anchor_bottom = 0.73600006
+offset_left = -32.87201
+offset_top = -12.92804
+offset_right = 37.12799
+offset_bottom = 13.07196
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_7b55j")
+texture_pressed = ExtResource("10_rcqid")
+texture_hover = SubResource("AtlasTexture_5pajh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ControlsPopup" parent="." instance=ExtResource("12_rcqid")]
+layout_mode = 1
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rtw2f")
 volume_db = -10.0
@@ -85,3 +116,4 @@ autoplay = true
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Controls" to="." method="_on_controls_button_pressed"]

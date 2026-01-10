@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://eivecvjafein"]
+
+[ext_resource type="Texture2D" uid="uid://dg376c1samcwn" path="res://Assets/EclipseClock/Adobe Express - file(1).png" id="1_kodxj"]
+[ext_resource type="Script" uid="uid://bce24236orx00" path="res://scripts/controls_popup.gd" id="1_n6y5b"]
+[ext_resource type="Texture2D" uid="uid://b7h40qac0rqe8" path="res://Assets/EclipseClock/Gemini_Generated_Image_gq5m8vgq5m8vgq5m(2).png" id="2_n6y5b"]
+
+[node name="ControlsPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 33.0
+offset_right = 2.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n6y5b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.34500003
+anchor_right = 0.505
+anchor_bottom = 0.34500003
+offset_left = -89.76001
+offset_top = -73.56001
+offset_right = 90.23999
+offset_bottom = 73.43999
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kodxj")
+expand_mode = 1
+
+[node name="CloseButton" type="TextureButton" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.87500006
+anchor_top = 0.12900001
+anchor_right = 0.87500006
+anchor_bottom = 0.12900001
+offset_left = -13.499985
+offset_top = -7.963008
+offset_right = 13.482071
+offset_bottom = 8.036991
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_n6y5b")
+texture_pressed = ExtResource("2_n6y5b")
+texture_hover = ExtResource("2_n6y5b")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="TextureRect/CloseButton" to="." method="_on_close_button_pressed"]
