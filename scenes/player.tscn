@@ -1,8 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://c1p6jru8esujp"]
+[gd_scene load_steps=55 format=3 uid="uid://c1p6jru8esujp"]
 
 [ext_resource type="Script" uid="uid://bgd45j1loq1pl" path="res://scripts/player.gd" id="1_qm0ti"]
 [ext_resource type="Texture2D" uid="uid://cq0hbw02rdmdf" path="res://sprites/characters/player.png" id="2_fhbv5"]
-[ext_resource type="Script" uid="uid://d32vqucbd7740" path="res://scripts/inventory/inventory.gd" id="3_qhqgy"]
 [ext_resource type="Shader" uid="uid://cs3nyp3oen1dx" path="res://Shaders/darkness.gdshader" id="4_mdl7e"]
 [ext_resource type="Script" uid="uid://dkgwe4ttgm785" path="res://scripts/color_rect.gd" id="5_qu4a1"]
 [ext_resource type="FontFile" uid="uid://cgl7bjji5whw3" path="res://Assets/ThaleahFat.ttf" id="6_6eyey"]
@@ -360,10 +359,6 @@ offset = Vector2(0, -15)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_3vyb7")
-
-[node name="Inventory" type="Node" parent="."]
-script = ExtResource("3_qhqgy")
-metadata/_custom_type_script = "uid://d32vqucbd7740"
 
 [node name="DarknessIncoming" type="CanvasLayer" parent="."]
 

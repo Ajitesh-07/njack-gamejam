@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvggh1ekbg410"]
+
+[ext_resource type="Texture2D" uid="uid://b71v5j86ey6xo" path="res://Assets/Texture/lightingshard_sheet.png" id="1_gldt6"]
+[ext_resource type="Script" uid="uid://s8u48mcpy3w3" path="res://scripts/pickups/pickup.gd" id="1_ys4qs"]
+[ext_resource type="Resource" uid="uid://babw01i71t77x" path="res://ItemResource/LightingShard.tres" id="2_an263"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys4qs"]
+atlas = ExtResource("1_gldt6")
+region = Rect2(0, 0, 225, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an263"]
+atlas = ExtResource("1_gldt6")
+region = Rect2(225, 0, 225, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpcn0"]
+atlas = ExtResource("1_gldt6")
+region = Rect2(450, 0, 225, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ys4qs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys4qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an263")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpcn0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_an263"]
+radius = 12.8399315
+
+[node name="LightningShardPickup" type="Node2D"]
+script = ExtResource("1_ys4qs")
+item_resource = ExtResource("2_an263")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.33911633, 0.34944484)
+sprite_frames = SubResource("SpriteFrames_ys4qs")
+frame_progress = 0.9527908
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.0068493, 0.99450547)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(-1.2642437, 1.0791833)
+shape = SubResource("CircleShape2D_an263")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

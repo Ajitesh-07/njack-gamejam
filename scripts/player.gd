@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 @export var speed = 170.0
+@export var max_health: float = 100.0 
+
+# Initialize health to max_health
+@onready var health: float = max_health
 
 @onready var animated_sprite = $AnimatedSprite2D
-signal health_changed(new_health: float)
-var health: float = 10;
-
 @export var fireball_scene = preload("res://scenes/attacks/fireball.tscn")
+
+signal health_changed(new_health: float)
 
 func _physics_process(delta):
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -41,10 +44,32 @@ func update_animation():
 			animated_sprite.play("side_idle")
 
 func apply_heal(amount):
-	print("Applying Heal")
-	health = clamp(health + amount, 0, 100)
+	print("Applying Heal: ", amount)
+
+	# 1. Update health using the variable max_health, not hardcoded 100
+	health = clamp(health + amount, 0, max_health)
+	GameData.player_health = health
+
+	# 2. Tell the UI to update
 	emit_signal("health_changed", health)
 
+	# 3. Check for Death
+	if health <= 0:
+		die()
+
+func die():
+	print("Player has died!")
+	# Add your death logic here:
+	# - Play death animation
+	# - Show "Game Over" screen
+	# - Reload scene
+	# get_tree().reload_current_scene()
+	GlobalInventory.clear_inventory()
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	#apply_heal(100 - health)
+	set_physics_process(false) # Stop moving
+	animated_sprite.play("death") # Assuming you have a death anim
+	
 func cast_fireball():
 	print("Casting Fireball")
 	var fireball = fireball_scene.instantiate()
@@ -71,6 +96,10 @@ func cast_fireball():
 	## 5. Add the fireball to the main scene (NOT the player)
 	#get_tree().root.add_child(fireball)
 func _ready():
+	health = GameData.player_health
+
+	# Optional: If you want to sync max health too
+	max_health = GameData.player_max_health
 	# Wait for world to load
 	await get_tree().process_frame
 	

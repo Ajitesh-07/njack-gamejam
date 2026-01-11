@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpcfidg4q7xsm"]
+
+[ext_resource type="Script" uid="uid://dx0d3ohf5m444" path="res://scripts/game_over.gd" id="1_3tf7q"]
+[ext_resource type="Texture2D" uid="uid://yduup0hu0fvo" path="res://Assets/wmremove-transformed.png" id="2_3tf7q"]
+[ext_resource type="Texture2D" uid="uid://dwir08glcs1aw" path="res://Assets/retry/retrynorm.png" id="3_udqdx"]
+[ext_resource type="Texture2D" uid="uid://b1wngr16uo14y" path="res://Assets/retry/retry pressed.png" id="4_vjp7t"]
+[ext_resource type="Texture2D" uid="uid://bc8c1hplh4wxb" path="res://Assets/retry/retry hover.png" id="5_l81e3"]
+[ext_resource type="Texture2D" uid="uid://dt0l2h62sh6em" path="res://Assets/retmainscreen/retnorm.png" id="6_4tn0k"]
+[ext_resource type="Texture2D" uid="uid://bhauc84or3lo5" path="res://Assets/retmainscreen/retpressed.png" id="7_skwon"]
+[ext_resource type="Texture2D" uid="uid://c2f5mxndvk3u7" path="res://Assets/retmainscreen/rethover.png" id="8_knw36"]
+
+[node name="gameWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3tf7q")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UIPanel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3tf7q")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="retry" type="TextureButton" parent="UIPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42200002
+anchor_top = 0.88100004
+anchor_right = 0.42200002
+anchor_bottom = 0.88100004
+offset_left = -14.144012
+offset_top = -5.8880005
+offset_right = 13.855988
+offset_bottom = 5.1119995
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_udqdx")
+texture_pressed = ExtResource("4_vjp7t")
+texture_hover = ExtResource("5_l81e3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="main menu" type="TextureButton" parent="UIPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.565
+anchor_top = 0.87700003
+anchor_right = 0.565
+anchor_bottom = 0.87700003
+offset_left = -18.880005
+offset_top = -5.2960205
+offset_right = 13.119995
+offset_bottom = 5.7039795
+texture_normal = ExtResource("6_4tn0k")
+texture_pressed = ExtResource("7_skwon")
+texture_hover = ExtResource("8_knw36")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="UIPanel/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UIPanel/retry" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="UIPanel/main menu" to="." method="_on_main_menu_button_pressed"]

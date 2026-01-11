@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShardPickup" load_steps=3 format=3 uid="uid://babw01i71t77x"]
+
+[ext_resource type="Texture2D" uid="uid://3rmylyqliskb" path="res://Assets/Texture/lightingshard_icon.png" id="1_hx15f"]
+[ext_resource type="Script" uid="uid://pfyewk84gdfs" path="res://scripts/items/ShardPickup.gd" id="2_hx15f"]
+
+[resource]
+script = ExtResource("2_hx15f")
+display_name = "LightningShard"
+icon = ExtResource("1_hx15f")
+metadata/_custom_type_script = "uid://binpfhyvof6ig"

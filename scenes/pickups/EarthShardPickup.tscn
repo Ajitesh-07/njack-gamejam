@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://b50pyqubkhenr"]
+
+[ext_resource type="Script" uid="uid://s8u48mcpy3w3" path="res://scripts/pickups/pickup.gd" id="1_6o8es"]
+[ext_resource type="Texture2D" uid="uid://crhddcwwce86e" path="res://Assets/Texture/fire_shard.png" id="1_bqoka"]
+[ext_resource type="Resource" uid="uid://bnle2gxt8caxs" path="res://ItemResource/EarthShard.tres" id="2_p2nug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l64o"]
+atlas = ExtResource("1_bqoka")
+region = Rect2(0, 0, 225, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syh65"]
+atlas = ExtResource("1_bqoka")
+region = Rect2(225, 0, 225, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogfve"]
+atlas = ExtResource("1_bqoka")
+region = Rect2(450, 0, 225, 369)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjj6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l64o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syh65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogfve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o8es"]
+radius = 12.8399315
+
+[node name="EarthShardPickup" type="Node2D"]
+script = ExtResource("1_6o8es")
+item_resource = ExtResource("2_p2nug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.33680943, 0.3513755)
+sprite_frames = SubResource("SpriteFrames_sjj6m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(-1.2642437, 1.0791833)
+shape = SubResource("CircleShape2D_6o8es")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

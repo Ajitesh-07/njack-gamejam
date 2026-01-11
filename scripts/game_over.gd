@@ -18,7 +18,6 @@ func _on_main_menu_button_pressed():
 # Using @onready makes it easier to reference the panel
 @onready var ui_panel = $UIPanel
 @onready var background = $Background
-@onready var game_over_music = $GameOverMusic
 
 func _ready():
 	# --- SETUP THE DROP ANIMATION ---
@@ -54,5 +53,3 @@ func _ready():
 	bg_tween.tween_property(background, "modulate:a", 1.0, 1.5)
 	await get_tree().create_timer(4.0).timeout
 	
-	# After 5 seconds, this line runs:
-	game_over_music.play()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://bv3jofm4fvsk8"]
+[gd_scene load_steps=30 format=3 uid="uid://bv3jofm4fvsk8"]
 
-[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://7h1byanhkkn" path="res://scripts/gameManager.gd" id="1_rysoc"]
+[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c8w77f0pe52m0" path="res://Assets/Texture/TX Tileset Grass.png" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://ckqrasn64gx41" path="res://Assets/Texture/TX Props.png" id="2_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c7smmayuuahay" path="res://Assets/Texture/TX Tileset Stone Ground.png" id="3_p57ef"]
@@ -1669,8 +1670,12 @@ size = Vector2(45, 42.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_264po"]
 size = Vector2(53.5, 44.125)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca42v"]
+radius = 28.85
+
 [node name="Game" type="Node2D"]
 position = Vector2(-1, 0)
+script = ExtResource("1_rysoc")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_iywne")
@@ -1727,12 +1732,148 @@ player_node_path = NodePath("../../YSort/Player")
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="HealthPickup" parent="Pickups" instance=ExtResource("13_kvuet")]
+position = Vector2(-161, 60)
 
 [node name="FireballPickup" parent="Pickups" instance=ExtResource("14_trtic")]
 position = Vector2(-312, 106)
 
 [node name="FireballPickup2" parent="Pickups" instance=ExtResource("14_trtic")]
 position = Vector2(-244, 179)
+
+[node name="FireballPickup3" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-311, -12)
+
+[node name="FireballPickup4" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-246, -147)
+
+[node name="FireballPickup5" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-194, -49)
+
+[node name="FireballPickup6" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-94, -156)
+
+[node name="FireballPickup7" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-455, -157)
+
+[node name="FireballPickup8" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-475, -67)
+
+[node name="FireballPickup9" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-449, 98)
+
+[node name="FireballPickup10" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-469, 244)
+
+[node name="FireballPickup11" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-323, 257)
+
+[node name="FireballPickup12" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(20, -228)
+
+[node name="FireballPickup13" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(84, -145)
+
+[node name="FireballPickup14" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(59, -54)
+
+[node name="FireballPickup15" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(66, 98)
+
+[node name="FireballPickup16" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(32, 251)
+
+[node name="FireballPickup17" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-80, 227)
+
+[node name="FireballPickup18" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-65, 157)
+
+[node name="FireballPickup19" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-345, -172)
+
+[node name="FireballPickup20" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(101, 196)
+
+[node name="FireballPickup21" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(148, -34)
+
+[node name="FireballPickup22" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-404, 33)
+
+[node name="FireballPickup23" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-385, -65)
+
+[node name="FireballPickup24" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-260, -79)
+
+[node name="HealthPickup2" parent="Pickups" instance=ExtResource("13_kvuet")]
+position = Vector2(-317, 42)
+
+[node name="HealthPickup3" parent="Pickups" instance=ExtResource("13_kvuet")]
+position = Vector2(-368, -4)
+
+[node name="FireballPickup25" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-137, -111)
+
+[node name="HealthPickup4" parent="Pickups" instance=ExtResource("13_kvuet")]
+position = Vector2(-121, -59)
+
+[node name="HealthPickup5" parent="Pickups" instance=ExtResource("13_kvuet")]
+position = Vector2(-306, 188)
+
+[node name="HealthPickup6" parent="Pickups" instance=ExtResource("13_kvuet")]
+position = Vector2(-379, 128)
+
+[node name="FireballPickup26" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-184, -153)
+
+[node name="FireballPickup27" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-178, -160)
+
+[node name="FireballPickup28" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-339, -259)
+
+[node name="FireballPickup29" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-398, -188)
+
+[node name="FireballPickup30" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-307, -179)
+
+[node name="FireballPickup31" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-445, 187)
+
+[node name="FireballPickup32" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-393, 81)
+
+[node name="FireballPickup33" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-438, -29)
+
+[node name="FireballPickup34" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-430, -80)
+
+[node name="FireballPickup35" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-483, -184)
+
+[node name="FireballPickup36" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(60, 267)
+
+[node name="FireballPickup37" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(73, 147)
+
+[node name="FireballPickup38" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-88, 296)
+
+[node name="FireballPickup39" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-189, 264)
+
+[node name="FireballPickup40" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(5, 223)
+
+[node name="FireballPickup41" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(152, 149)
+
+[node name="FireballPickup42" parent="Pickups" instance=ExtResource("14_trtic")]
+position = Vector2(-146, 234)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_ir15t")
@@ -1793,6 +1934,16 @@ shape = SubResource("RectangleShape2D_264po")
 
 [node name="SpawnPosition" parent="lobby_earth_door" index="1"]
 position = Vector2(57, 5)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(-5.08172, -1.271858)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(31.682182, -46.388844)
+scale = Vector2(0.7412516, 2.5367184)
+shape = SubResource("CircleShape2D_ca42v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="YSort/Spawn Tower"]
 [editable path="YSort/surtower"]

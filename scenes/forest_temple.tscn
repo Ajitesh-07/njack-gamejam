@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=4 uid="uid://dton5sh6fi4gd"]
+[gd_scene load_steps=27 format=4 uid="uid://dton5sh6fi4gd"]
 
 [ext_resource type="Texture2D" uid="uid://dcb2crym2jw60" path="res://Assets/temple/example_tiled_map.png" id="1_6ntre"]
 [ext_resource type="Texture2D" uid="uid://cm51c47yqohl8" path="res://Assets/exit/Dungeon Gathering Free Version/Vase Shine Anim.png" id="2_ff7rv"]
-[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="2_wdiyr"]
+[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="2_wdiyr"]
 [ext_resource type="Texture2D" uid="uid://c7smmayuuahay" path="res://Assets/Texture/TX Tileset Stone Ground.png" id="3_wyba5"]
 [ext_resource type="Texture2D" uid="uid://dvaj8u8qrwvgo" path="res://Assets/Texture/TX Struct.png" id="4_gr253"]
 [ext_resource type="Texture2D" uid="uid://c8w77f0pe52m0" path="res://Assets/Texture/TX Tileset Grass.png" id="5_rb7u6"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cdw5a6jvr4ye1" path="res://scenes/soldier.tscn" id="9_gr253"]
 [ext_resource type="AudioStream" uid="uid://bkbdc880k6uuj" path="res://music/temple 3.wav" id="10_rb7u6"]
 [ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="11_vytp2"]
+[ext_resource type="PackedScene" uid="uid://ddgo3xgdolhes" path="res://scenes/inventory/inventory_ui.tscn" id="12_dqgq2"]
+[ext_resource type="Script" uid="uid://cpxdhaa1sa333" path="res://scripts/inventory/inventory_ui.gd" id="13_20tqt"]
+[ext_resource type="PackedScene" uid="uid://c1f8nb81kfw1x" path="res://scenes/ui/stats.tscn" id="14_6r37f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gg786"]
 texture = ExtResource("1_6ntre")
@@ -9763,6 +9766,10 @@ polygon = PackedVector2Array(1, 5, 3, 350, -1, 601, 0, 793, -47, 792, -78, 754, 
 
 [node name="soldier" parent="." instance=ExtResource("9_gr253")]
 position = Vector2(-155, 141)
+max_health = null
+damage = null
+speed = null
+attack_range = null
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_rb7u6")
@@ -9787,5 +9794,13 @@ position = Vector2(2, -33)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(5, -284, 4, -270, -145, -269, -164, -255, -173, -220, -166, -97, -169, -80, -80, -78, -80, -8, -170, -5, -170, 145, -165, 164, -159, 176, -144, 178, -122, 181, 21, 183, 46, 176, 54, 162, 56, 130, 59, -5, -32, -2, -28, -81, 59, -80, 57, -200, 50, -269, 25, -281, 83, -294, 122, -252, 134, -186, 164, -62, 138, -6, 141, 40, 147, 63, 170, 198, 100, 231, -20, 268, -183, 246, -252, 156, -270, 45, -240, -85, -243, -216, -254, -304, -208, -351, -140, -358, -59, -326)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("12_dqgq2")]
+script = ExtResource("13_20tqt")
+player_node_path = NodePath("../../YSort/Player")
+
+[node name="Stats" parent="UI" instance=ExtResource("14_6r37f")]
 
 [editable path="forest_entrance"]

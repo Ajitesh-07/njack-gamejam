@@ -13,7 +13,6 @@ signal item_used(index:int)     # when use requested (UI -> model)
 signal selection_changed(new_index: int) # <--- ADD THIS
 
 var selected_index = 0
-
 func _ready():
 	_init_slots()
 
@@ -99,3 +98,9 @@ func set_selected_index(idx: int):
 # This function just returns the value. (Removed the unused 'idx' parameter)
 func get_selected_index() -> int:
 	return selected_index
+
+func clear_inventory():
+	for i in range(slot_count):
+		if slots[i] != null:
+			slots[i] = null
+			emit_signal("slot_changed", i)

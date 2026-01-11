@@ -3,14 +3,19 @@
 [ext_resource type="Script" uid="uid://duc6c5vbwvuam" path="res://scenes/ui/bars_root.gd" id="1_7wk8o"]
 [ext_resource type="Texture2D" uid="uid://cgs3iaoq8d5qp" path="res://Assets/Texture/health.jpg" id="2_pnnet"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pnnet"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnnet"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trxc5"]
-bg_color = Color(0.19169, 0.6877825, 0.6107009, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.240616, 0.604797, 0.29650092, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Stats" type="Control"]
 custom_minimum_size = Vector2(0, 12)
@@ -20,13 +25,17 @@ anchor_top = 0.01
 anchor_right = 1.0
 anchor_bottom = 0.01
 offset_left = -38.01599
+offset_right = -44.0
+offset_bottom = 12.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 
 [node name="BarsRoot" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 153.0
-offset_bottom = 23.0
+offset_left = -71.18402
+offset_top = -4.48
+offset_right = 76.81598
+offset_bottom = 18.52
 script = ExtResource("1_7wk8o")
 
 [node name="HealthRow" type="HBoxContainer" parent="BarsRoot"]
@@ -41,22 +50,6 @@ region_rect = Rect2(183, -3.5, 455, 512)
 [node name="HealthBar" type="ProgressBar" parent="BarsRoot/HealthRow"]
 custom_minimum_size = Vector2(120, 12)
 layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxEmpty_pnnet")
+theme_override_styles/background = SubResource("StyleBoxFlat_pnnet")
 theme_override_styles/fill = SubResource("StyleBoxFlat_trxc5")
 show_percentage = false
-
-[node name="HealthLabel" type="Label" parent="BarsRoot/HealthRow"]
-layout_mode = 2
-
-[node name="ArmorRow" type="HBoxContainer" parent="BarsRoot"]
-visible = false
-layout_mode = 2
-
-[node name="icon" type="TextureRect" parent="BarsRoot/ArmorRow"]
-layout_mode = 2
-
-[node name="ArmorBar" type="ProgressBar" parent="BarsRoot/ArmorRow"]
-layout_mode = 2
-
-[node name="ArmorLabel" type="Label" parent="BarsRoot/ArmorRow"]
-layout_mode = 2

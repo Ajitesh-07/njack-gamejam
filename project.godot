@@ -23,6 +23,8 @@ general/text_to_speech=true
 
 GlobalClock="*res://scripts/GlobalClock.gd"
 SceneManager="*res://scenes/scene_manager.tscn"
+GlobalInventory="*res://scripts/inventory/inventory.gd"
+GameData="*res://scripts/game_data.gd"
 
 [display]
 

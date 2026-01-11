@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://b70682vhk53vl"]
+[gd_scene load_steps=43 format=4 uid="uid://b70682vhk53vl"]
 
 [ext_resource type="Texture2D" uid="uid://c8iw22c8srwmy" path="res://Assets/exit/Dungeon Gathering Free Version/Water.png" id="1_rb1xa"]
 [ext_resource type="Texture2D" uid="uid://c5q3rxsav8mug" path="res://Assets/Water Temple Free Sample/Water Temple Sample sheet_16.png" id="2_pqmeb"]
@@ -14,11 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://bkkwpj82da8g3" path="res://Assets/exit/Dungeon Gathering Free Version/Structure.png" id="9_coesa"]
 [ext_resource type="Texture2D" uid="uid://8arx6nhurqlt" path="res://Assets/exit/Dungeon Gathering Free Version/Torch Yellow.png" id="13_coesa"]
 [ext_resource type="Texture2D" uid="uid://cfovuyhuya5ba" path="res://Assets/Water Temple Free Sample/Water Temple Sample sheet_48.png" id="14_l50kn"]
-[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="14_wxqjb"]
+[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="14_wxqjb"]
 [ext_resource type="Texture2D" uid="uid://bftgbqrdp8id2" path="res://Assets/Texture/Extra/TX Props with Shadow.png" id="15_ge3w2"]
 [ext_resource type="PackedScene" uid="uid://gtj6wa5r6tet" path="res://scenes/water_bat.tscn" id="17_coesa"]
 [ext_resource type="AudioStream" uid="uid://bibb0pfkyshu3" path="res://music/temple.wav" id="18_wxqjb"]
 [ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="19_vrjnu"]
+[ext_resource type="PackedScene" uid="uid://ddgo3xgdolhes" path="res://scenes/inventory/inventory_ui.tscn" id="20_uqcds"]
+[ext_resource type="Script" uid="uid://cpxdhaa1sa333" path="res://scripts/inventory/inventory_ui.gd" id="21_ev43c"]
+[ext_resource type="PackedScene" uid="uid://c1f8nb81kfw1x" path="res://scenes/ui/stats.tscn" id="22_5r7hk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wxqjb"]
 texture = ExtResource("1_rb1xa")
@@ -1829,5 +1832,16 @@ position = Vector2(1, -18)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(-229, -201, -228, 179, -34, 182, -40, 254, -39, 260, 44, 257, 41, 177, 43, 179, 49, 184, 208, 177, 209, -195, 202, -290, 65, -290, 63, -193, -78, -194, -79, -291, -225, -287, -231, -213, -258, -212, -286, -178, -419, -282, -367, -372, -194, -405, 158, -425, 395, -336, 386, -110, 382, 92, 376, 133, 336, 321, 227, 378, 20, 415, -281, 374, -361, 193, -306, 34)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("20_uqcds")]
+script = ExtResource("21_ev43c")
+player_node_path = NodePath("../../YSort/Player")
+
+[node name="Stats" parent="UI" instance=ExtResource("22_5r7hk")]
+
+[node name="water_bat2" parent="." instance=ExtResource("17_coesa")]
+position = Vector2(-89, -155)
 
 [editable path="water_entrance"]

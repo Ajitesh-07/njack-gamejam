@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://sm2v40dclltr"]
+[gd_scene load_steps=4 format=3 uid="uid://sm2v40dclltr"]
 
 [ext_resource type="Script" uid="uid://cq4xaffux3txp" path="res://scripts/dragon_fireball.gd" id="1_5nwag"]
 [ext_resource type="Texture2D" uid="uid://bxx3xr2jembrw" path="res://sprites/characters/Flying Demon 2D Pixel Art/Sprites/projectile.png" id="2_s6yad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nwag"]
+radius = 9.486833
 
 [node name="dragon_fireball" type="Area2D"]
 rotation = 2.8539822
@@ -12,3 +15,8 @@ position = Vector2(9.536743e-07, -9.536743e-07)
 rotation = -3.1524937
 scale = Vector2(0.41666666, 0.46875)
 texture = ExtResource("2_s6yad")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5nwag")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

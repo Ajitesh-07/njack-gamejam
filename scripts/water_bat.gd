@@ -12,10 +12,38 @@ var player_chase=false
 var dragon_attack=false
 #@onready var Player=get_node("../Player")
 var current_attack=false
+var damage = 40
+var current_health: float
+var max_health = 30
 
 @onready var dragon=$AnimatedSprite2D
-@export var water=preload("res://scenes/waterball.tscn")
+@onready var water=load("res://scenes/waterball.tscn")
+@onready var health_bar = $HealthBar
+@onready var shard_pickup = preload("res://scenes/pickups/WaterShardPickup.tscn")
 
+func take_damage(amount: int):
+	current_health -= amount
+	health_bar.value = current_health
+	health_bar.visible = true 
+
+	# FIX: Color(255, 10, 10) is invalid for floats. Use Color(1, 0, 0) for Red.
+	modulate = Color(10, 0, 0) # Intense Red Flash
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+
+	if current_health <= 0:
+		die()
+
+func die():
+	var pickup_instance = shard_pickup.instantiate()
+	pickup_instance.global_position = global_position
+	get_parent().add_child(pickup_instance)
+	queue_free()
+
+
+func _ready() -> void:
+	current_health = max_health
+	health_bar.max_value = max_health
 
 func _physics_process(delta: float) -> void:
 
@@ -127,11 +155,12 @@ func _on_hit_area_body_exited(body: Node2D) -> void:
 		
 		
 func water_shoot():
-	print("happening")
+	print("happening ", water)
 	var water_t=water.instantiate()
 	water_t.position=global_position
 	water_t.direction=(Player.global_position-global_position).normalized()
-
+	if "damage_amount" in water_t:
+		water_t.damage_amount = damage
 	get_parent().add_child(water_t)
 
 	
@@ -163,7 +192,6 @@ func attack():
 	
 		$dragon_attack_cool.start()
 	if current_dir=="right" and  dragon_attack and current_attack:
-		print("attack")
 		dragon.flip_h=true
 	
 		dragon.play("attack")

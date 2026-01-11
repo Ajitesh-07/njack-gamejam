@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ckcht0vf57iav"]
+[gd_scene load_steps=55 format=3 uid="uid://ckcht0vf57iav"]
 
 [ext_resource type="Script" uid="uid://dj312v0qwqeee" path="res://elec_drag.gd" id="1_iu10r"]
 [ext_resource type="Texture2D" uid="uid://dnibg1hhi4nmg" path="res://sprites/characters/White_Swoosh_VFX/Golem_1_attack.png" id="2_k2wb8"]
@@ -334,12 +334,19 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b8vyi"]
-radius = 80.0
+radius = 94.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mf04p"]
-radius = 40.0
+radius = 56.028366
 
-[node name="elec_drag" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2wb8"]
+bg_color = Color(3.3691526e-07, 0.7156174, 0.40574995, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="elec_drag" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_iu10r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -369,6 +376,16 @@ wait_time = 60.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_k2wb8")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -20.0
+offset_top = -38.0
+offset_right = 22.0
+offset_bottom = -32.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_k2wb8")
+max_value = 120.0
+value = 120.0
+show_percentage = false
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="detection_elec" to="." method="_on_detection_elec_body_entered"]

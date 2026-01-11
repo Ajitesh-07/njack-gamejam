@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShardPickup" load_steps=3 format=3 uid="uid://bnle2gxt8caxs"]
+
+[ext_resource type="Texture2D" uid="uid://ok3eyjt3sp6k" path="res://Assets/Texture/earthshard_icon.jpg" id="1_ukfa8"]
+[ext_resource type="Script" uid="uid://pfyewk84gdfs" path="res://scripts/items/ShardPickup.gd" id="2_ukfa8"]
+
+[resource]
+script = ExtResource("2_ukfa8")
+display_name = "EarthShard"
+icon = ExtResource("1_ukfa8")
+metadata/_custom_type_script = "uid://binpfhyvof6ig"

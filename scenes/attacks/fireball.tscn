@@ -50,13 +50,16 @@ sprite_frames = SubResource("SpriteFrames_ele2n")
 autoplay = "default"
 frame_progress = 0.9049221
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_l5qua")
-
 [node name="LifetimeTimer" type="Timer" parent="."]
-wait_time = 0.9
+wait_time = 0.55
 one_shot = true
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l5qua")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

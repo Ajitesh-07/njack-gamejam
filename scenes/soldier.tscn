@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cdw5a6jvr4ye1"]
+[gd_scene load_steps=42 format=3 uid="uid://cdw5a6jvr4ye1"]
 
 [ext_resource type="Script" uid="uid://bcqoulf3wtkx2" path="res://scripts/soldier.gd" id="1_q2rr1"]
 [ext_resource type="Texture2D" uid="uid://bsv0uux2vs7y5" path="res://sprites/GandalfHardcore Archer/GandalfHardcore Archer red sheet.png" id="2_2oslh"]
@@ -166,7 +166,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wy8un")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 7.0
 }, {
@@ -189,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_46q4a")
 }],
-"loop": true,
+"loop": false,
 "name": &"die",
 "speed": 5.0
 }, {
@@ -209,7 +209,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o7ey4")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -229,7 +229,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g13yl")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 6.0
 }, {
@@ -258,18 +258,29 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xdypi")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 6.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vatia"]
-radius = 80.0
+radius = 200.12247
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akjjp"]
 radius = 50.0
 
-[node name="soldier" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oslh"]
+bg_color = Color(3.3691526e-07, 0.7156174, 0.40574995, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2oslh"]
+radius = 12.0
+height = 40.0
+
+[node name="soldier" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_q2rr1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -277,8 +288,6 @@ position = Vector2(4.7683716e-07, 0)
 scale = Vector2(0.796875, 0.78125)
 sprite_frames = SubResource("SpriteFrames_7komp")
 animation = &"attack"
-frame = 8
-frame_progress = 0.03353213
 offset = Vector2(0, -20)
 
 [node name="detection" type="Area2D" parent="."]
@@ -290,21 +299,35 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_vatia")
 
 [node name="hit_area" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit_area"]
-visible = false
 shape = SubResource("CircleShape2D_akjjp")
 
 [node name="cool" type="Timer" parent="."]
-wait_time = 60.0
+one_shot = true
 
 [node name="arrow_s" type="AudioStreamPlayer2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_2oslh")
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -23.0
+offset_right = 21.0
+offset_bottom = -17.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2oslh")
+value = 100.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -5)
+shape = SubResource("CapsuleShape2D_2oslh")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]

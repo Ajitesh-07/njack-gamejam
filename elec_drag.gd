@@ -13,6 +13,38 @@ var player=null
 var current_dir
 var elec_attack=false
 var current_att=false
+
+var max_health = 120
+var current_health: float
+var damage = 34
+@onready var health_bar = $HealthBar
+var has_attacked = false
+
+@onready var shard_pickup = preload("res://scenes/pickups/LightningShardPickup.tscn")
+
+func _ready() -> void:
+	current_health = max_health
+	health_bar.max_value = max_health
+
+func take_damage(amount: int):
+	current_health -= amount
+	health_bar.value = current_health
+	health_bar.visible = true 
+
+	# FIX: Color(255, 10, 10) is invalid for floats. Use Color(1, 0, 0) for Red.
+	modulate = Color(10, 0, 0) # Intense Red Flash
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.1)
+
+	if current_health <= 0:
+		die()
+
+func die():
+	var pickup_instance = shard_pickup.instantiate()
+	pickup_instance.global_position = global_position
+	get_parent().add_child(pickup_instance)
+	queue_free()
+
 func _physics_process(delta: float) -> void:
 
 	var elec=$AnimatedSprite2D
@@ -90,8 +122,9 @@ func attack():
 	if elec_attack:
 		current_att=true
 	if elec_attack:
-		print($AnimatedSprite2D.frame)
-		print("attack")
+		var frame = $AnimatedSprite2D.frame
+		if (frame != 10):
+			has_attacked = false
 		if current_dir=="right":
 			elec2.flip_h=false
 			elec2.play("attack")
@@ -105,8 +138,11 @@ func attack():
 			
 			$elec_cool.start()
 							
-		
-
+	
+		if (frame == 10 and !has_attacked):
+			var player = get_tree().get_first_node_in_group("Player")
+			player.apply_heal(-damage)
+			has_attacked = true
 
 
 	

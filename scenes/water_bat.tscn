@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://gtj6wa5r6tet"]
+[gd_scene load_steps=39 format=3 uid="uid://gtj6wa5r6tet"]
 
 [ext_resource type="Script" uid="uid://evtmfo45586v" path="res://scripts/water_bat.gd" id="1_jdxwg"]
 [ext_resource type="Texture2D" uid="uid://cucwlomfvhqk0" path="res://sprites/Bat with VFX/Bat-Attack2.png" id="1_jkx2g"]
@@ -236,7 +236,18 @@ radius = 90.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jp7s"]
 radius = 55.0
 
-[node name="water_bat" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu5ue"]
+bg_color = Color(3.3691526e-07, 0.7156174, 0.40574995, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu5ue"]
+radius = 20.238089
+height = 45.238083
+
+[node name="water_bat" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_jdxwg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -264,6 +275,19 @@ shape = SubResource("CircleShape2D_3jp7s")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_pu5ue")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -23.0
+offset_right = 21.0
+offset_bottom = -17.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_pu5ue")
+value = 100.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.0026153, 0.8400003)
+shape = SubResource("CapsuleShape2D_pu5ue")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="detect_area" to="." method="_on_detect_area_body_entered"]

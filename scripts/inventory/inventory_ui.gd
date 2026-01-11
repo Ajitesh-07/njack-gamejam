@@ -7,37 +7,46 @@ var slot_nodes: Array = []
 var selected_index = 0
 
 func _ready():
-	# get player
-	if player_node_path != NodePath(""):
-		player = get_node(player_node_path)
+	# 1. Find the Player (We still need this to know who uses the items)
+	var found_players = get_tree().get_nodes_in_group("Player")
+	if found_players.size() > 0:
+		player = found_players[0]
 	else:
-		# fallback common path (adjust "Main/Player" to your root/Player path)
-		if has_node("/root/Main/Player"):
-			player = get_node("/root/Main/Player")
+		print("InventoryUI: Could not find Player!")
+		return
 
-	# find inventory (child of player) or autoload fallback
-	if player and player.has_node("Inventory"):
-		inventory = player.get_node("Inventory")
-	elif get_tree().has_node("/root/Inventory"):
-		inventory = get_tree().get_node("/root/Inventory")
+	# 2. CONNECT TO THE GLOBAL AUTOLOAD
+	# Instead of searching for a child node, we just point to the Singleton.
+	inventory = GlobalInventory 
 
-	# gather slots (assumes CenterContainer/HBoxContainer/Slots)
+	# 3. Gather slots
 	var hbox = $CenterContainer/HBoxContainer
 	for i in range(hbox.get_child_count()):
 		var slot = hbox.get_child(i)
 		slot.slot_index = i
+		
+		# Disconnect old signals if any (safety check)
+		if slot.is_connected("right_clicked", Callable(self, "_on_slot_right_clicked")):
+			slot.disconnect("right_clicked", Callable(self, "_on_slot_right_clicked"))
+		if slot.is_connected("left_clicked", Callable(self, "_on_slot_left_clicked")):
+			slot.disconnect("left_clicked", Callable(self, "_on_slot_left_clicked"))
+			
 		slot.connect("right_clicked", Callable(self, "_on_slot_right_clicked"))
 		slot.connect("left_clicked", Callable(self, "_on_slot_left_clicked"))
 		slot_nodes.append(slot)
 
-	if inventory:
+	# 4. Connect Signals
+	# We check if we are already connected to avoid errors when reloading
+	if not inventory.is_connected("slot_changed", Callable(self, "_on_slot_changed")):
 		inventory.connect("slot_changed", Callable(self, "_on_slot_changed"))
+		
+	if not inventory.is_connected("selection_changed", Callable(self, "_on_selection_changed")):
 		inventory.connect("selection_changed", Callable(self, "_on_selection_changed"))
-		_refresh_all()
-		# Set the initial visual selection based on the data model's default
-		_on_selection_changed(inventory.get_selected_index())
-	else:
-		push_warning("Inventory not found - set player_node_path or create autoload Inventory.")
+		
+	# 5. Refresh UI
+	_refresh_all()
+	# Sync the selection from the Global data
+	_on_selection_changed(inventory.get_selected_index())
 
 func _unhandled_input(event: InputEvent):
 	# Don't do anything if the inventory data model isn't linked
@@ -68,7 +77,7 @@ func _unhandled_input(event: InputEvent):
 		if changed:
 			# Tell the data model to update
 			inventory.set_selected_index(new_index)
-			
+			get_viewport().set_input_as_handled()
 			# Stop this scroll event from bubbling up (e.g., zooming the camera)
 			# It's like a bouncer at a club: "You're done here."
 

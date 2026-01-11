@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ruup11j77tg7"]
+[gd_scene load_steps=32 format=3 uid="uid://ruup11j77tg7"]
 
 [ext_resource type="Texture2D" uid="uid://bvh7vf2h6mfnp" path="res://sprites/characters/Flying Demon 2D Pixel Art/Sprites/with_outline/ATTACK.png" id="1_lhjy6"]
 [ext_resource type="Script" uid="uid://d4id6i10wsue2" path="res://scripts/dragon.gd" id="1_mpji6"]
@@ -171,12 +171,22 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gyrd2"]
-radius = 80.0
+radius = 145.16887
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uoiyk"]
-radius = 50.0
+radius = 94.27668
 
-[node name="dragon" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y46cm"]
+bg_color = Color(3.3691526e-07, 0.7156174, 0.40574995, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y46cm"]
+radius = 19.026299
+
+[node name="dragon" type="CharacterBody2D" groups=["Flying", "enemy"]]
 script = ExtResource("1_mpji6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -184,8 +194,6 @@ position = Vector2(0, 5.9604645e-08)
 scale = Vector2(0.37962964, 0.48239437)
 sprite_frames = SubResource("SpriteFrames_1krxc")
 animation = &"attack"
-frame = 1
-frame_progress = 0.4950249
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -203,10 +211,22 @@ scale = Vector2(1.0399998, 0.6799997)
 shape = SubResource("CircleShape2D_uoiyk")
 
 [node name="dragon_cool" type="Timer" parent="."]
-wait_time = 60.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_y46cm")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -23.0
+offset_right = 21.0
+offset_bottom = -17.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_y46cm")
+value = 100.0
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_y46cm")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

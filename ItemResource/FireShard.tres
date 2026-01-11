@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShardPickup" load_steps=3 format=3 uid="uid://wkrq2f0vmn8p"]
+
+[ext_resource type="Texture2D" uid="uid://qf3r2srkdkp6" path="res://Assets/Texture/fireshard_icon.jpg" id="1_crvfy"]
+[ext_resource type="Script" uid="uid://pfyewk84gdfs" path="res://scripts/items/ShardPickup.gd" id="2_crvfy"]
+
+[resource]
+script = ExtResource("2_crvfy")
+display_name = "FireShard"
+icon = ExtResource("1_crvfy")
+metadata/_custom_type_script = "uid://binpfhyvof6ig"

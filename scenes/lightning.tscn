@@ -35,12 +35,12 @@ region = Rect2(0, 0, 104, 22)
 atlas = ExtResource("6_mqp7u")
 region = Rect2(0, 0, 104, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tshpm"]
-atlas = ExtResource("7_77dsp")
-region = Rect2(0, 0, 104, 22)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yocoi"]
 atlas = ExtResource("8_ofl5i")
+region = Rect2(0, 0, 104, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tshpm"]
+atlas = ExtResource("7_77dsp")
 region = Rect2(0, 0, 104, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsdwt"]
@@ -86,10 +86,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_bvwe4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tshpm")
+"texture": SubResource("AtlasTexture_yocoi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yocoi")
+"texture": SubResource("AtlasTexture_tshpm")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bsdwt")
@@ -121,6 +121,8 @@ script = ExtResource("1_l6yd2")
 scale = Vector2(0.7117234, 0.4090909)
 sprite_frames = SubResource("SpriteFrames_i30vu")
 animation = &"effect"
+frame = 12
+frame_progress = 1.0
 offset = Vector2(30, 0)
 
 [node name="light_timer" type="Timer" parent="."]

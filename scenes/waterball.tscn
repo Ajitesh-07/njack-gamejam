@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1vbqtpsdpchc"]
+[gd_scene load_steps=4 format=3 uid="uid://b1vbqtpsdpchc"]
 
 [ext_resource type="Script" uid="uid://di76a7krq5xqg" path="res://scenes/waterball.gd" id="1_62p4j"]
 [ext_resource type="Texture2D" uid="uid://bqup81m54d86k" path="res://sprites/pngtree_pixel-grid-pixel-art-water-drop-decorative-element-material_21600162.png" id="2_q6okr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62p4j"]
+height = 20.0
 
 [node name="waterball" type="Area2D"]
 script = ExtResource("1_62p4j")
@@ -10,3 +13,8 @@ script = ExtResource("1_62p4j")
 rotation = -1.569129
 scale = Vector2(0.01080307, 0.010312252)
 texture = ExtResource("2_q6okr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_62p4j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

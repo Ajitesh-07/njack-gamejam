@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsh33pchxn1dy"]
+[gd_scene load_steps=12 format=3 uid="uid://dsh33pchxn1dy"]
 
 [ext_resource type="Texture2D" uid="uid://cugciphjxv345" path="res://Assets/ChatGPT Image Nov 14, 2025, 02_21_24 PM.png" id="1_x1wnb"]
-[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/Player.tscn" id="2_vibj2"]
+[ext_resource type="PackedScene" uid="uid://c1p6jru8esujp" path="res://scenes/player.tscn" id="2_vibj2"]
 [ext_resource type="PackedScene" uid="uid://ckcht0vf57iav" path="res://elec_drag.tscn" id="3_vibj2"]
 [ext_resource type="AudioStream" uid="uid://c3rhlmr4xliyf" path="res://music/temple2.wav" id="4_2pbgd"]
 [ext_resource type="PackedScene" uid="uid://uj8t2idbog3a" path="res://scenes/scene_portal.tscn" id="5_lg01r"]
+[ext_resource type="PackedScene" uid="uid://ddgo3xgdolhes" path="res://scenes/inventory/inventory_ui.tscn" id="6_bwfd8"]
+[ext_resource type="Script" uid="uid://cpxdhaa1sa333" path="res://scripts/inventory/inventory_ui.gd" id="7_6hwyc"]
+[ext_resource type="PackedScene" uid="uid://c1f8nb81kfw1x" path="res://scenes/ui/stats.tscn" id="8_7r4gf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pbgd"]
 texture = ExtResource("1_x1wnb")
@@ -4393,5 +4396,13 @@ shape = SubResource("RectangleShape2D_lg01r")
 
 [node name="SpawnPosition" parent="lightning_entrance" index="1"]
 position = Vector2(2, -30)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="UI" instance=ExtResource("6_bwfd8")]
+script = ExtResource("7_6hwyc")
+player_node_path = NodePath("../../YSort/Player")
+
+[node name="Stats" parent="UI" instance=ExtResource("8_7r4gf")]
 
 [editable path="lightning_entrance"]

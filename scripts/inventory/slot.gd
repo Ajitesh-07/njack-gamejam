@@ -45,7 +45,7 @@ func set_selected(value: bool):
 		unselectedNode.visible = not is_selected
 
 # This is also perfect for our manager UI system.
-func _unhandled_input(event: InputEvent):
+func _input(event: InputEvent):
 	if !is_selected:
 		return
 	if event is InputEventMouseButton and event.pressed:
